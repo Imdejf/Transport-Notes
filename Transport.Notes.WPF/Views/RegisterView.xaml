@@ -31,7 +31,7 @@
                                 Margin="50 50 50 0">
                         <StackPanel>
                             <!-- Sing up header -->
-                            <TextBlock Text="Sign In"
+                            <TextBlock Text="Register"
                                        FontSize="30"
                                        FontFamily="Arial"
                                        Foreground="DarkOrange"
@@ -68,6 +68,7 @@
                         </StackPanel>
                     </Border>
                     <Button
+                        Command="{Binding RegisterViewCommand}"
                         BorderBrush="Transparent"
                         Background="Transparent"
                         Content="Back to login window..."

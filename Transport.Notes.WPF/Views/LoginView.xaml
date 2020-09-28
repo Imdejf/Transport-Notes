@@ -57,6 +57,7 @@
                         </StackPanel>
                     </Border>
                     <Button
+                        Command="{Binding ViewRegisterCommand}"
                         BorderBrush="Transparent"
                         Background="Transparent"
                         Content="Or, create new account..."
