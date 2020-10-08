@@ -45,6 +45,7 @@ namespace Transport.Notes.WPF
             services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
             {
                 return () => new LoginViewModel(
+                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>(),
                     services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
                     );
             });
