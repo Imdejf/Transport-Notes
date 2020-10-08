@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
 using System.Windows.Input;
 using Transport.Notes.WPF.State.Navigators;
 using Transport.Notes.WPF.ViewModel;
@@ -27,7 +28,7 @@ namespace Transport.Notes.WPF.Commands
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            Application.Current.MainWindow.WindowState = WindowState.Maximized;
         }
     }
 }

@@ -10,8 +10,11 @@ namespace Transport.Notes.WPF.ViewModel
     {
         public ICommand ViewRegisterCommand { get; set; }
 
-        public LoginViewModel(IRenavigator registerRenavigator)
+        public ICommand LoginCommand { get; set; }
+
+        public LoginViewModel(IRenavigator registerRenavigator,IRenavigator loginRenavigator)
         {
+            LoginCommand = new LoginCommand(this,loginRenavigator);
             ViewRegisterCommand = new RenavigateCommand(registerRenavigator);
         }
     }
