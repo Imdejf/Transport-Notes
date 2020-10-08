@@ -8,6 +8,9 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Border>
+        <Border.Background>
+            <ImageBrush ImageSource="/Resources/LoginPicture.jpg"/>
+        </Border.Background>
         <Grid>
             <TextBlock Text=" You will save time with us "
                        Foreground="White"
@@ -31,7 +34,7 @@
                                 Margin="50 50 50 0">
                         <StackPanel>
                             <!-- Sing up header -->
-                            <TextBlock Text="Sign In"
+                            <TextBlock Text="Register"
                                        FontSize="30"
                                        FontFamily="Arial"
                                        Foreground="DarkOrange"
@@ -68,6 +71,7 @@
                         </StackPanel>
                     </Border>
                     <Button
+                        Command="{Binding RegisterViewCommand}"
                         BorderBrush="Transparent"
                         Background="Transparent"
                         Content="Back to login window..."

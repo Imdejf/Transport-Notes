@@ -7,7 +7,8 @@ namespace Transport.Notes.WPF.State.Navigators
 {
     public enum ViewType
     {
-        Login
+        Login,
+        Register
     }
     public interface INavigator
     {
