@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transport.Notes.WPF", "Transport.Notes.WPF\Transport.Notes.WPF.csproj", "{768F626E-1D7C-4D6D-AF9B-2426E9D0FF80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transport.Notes.WPF", "Transport.Notes.WPF\Transport.Notes.WPF.csproj", "{768F626E-1D7C-4D6D-AF9B-2426E9D0FF80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transport.Notes.EntityFramework", "Transport.Notes.EntityFramework\Transport.Notes.EntityFramework.csproj", "{A1434CBA-926D-44EC-A2EB-FE76A9096F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transport.Notes.Domain", "Transport.Notes.Domain\Transport.Notes.Domain.csproj", "{2568AF77-E1D2-438B-8657-3DDE8AA6FA49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{768F626E-1D7C-4D6D-AF9B-2426E9D0FF80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{768F626E-1D7C-4D6D-AF9B-2426E9D0FF80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{768F626E-1D7C-4D6D-AF9B-2426E9D0FF80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1434CBA-926D-44EC-A2EB-FE76A9096F48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1434CBA-926D-44EC-A2EB-FE76A9096F48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1434CBA-926D-44EC-A2EB-FE76A9096F48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1434CBA-926D-44EC-A2EB-FE76A9096F48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2568AF77-E1D2-438B-8657-3DDE8AA6FA49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2568AF77-E1D2-438B-8657-3DDE8AA6FA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2568AF77-E1D2-438B-8657-3DDE8AA6FA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2568AF77-E1D2-438B-8657-3DDE8AA6FA49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

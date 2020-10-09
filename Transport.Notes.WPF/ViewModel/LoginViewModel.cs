@@ -2,6 +2,7 @@
 
 using System.Windows.Input;
 using Transport.Notes.WPF.Commands;
+using Transport.Notes.WPF.State.Authenticators;
 using Transport.Notes.WPF.State.Navigators;
 
 namespace Transport.Notes.WPF.ViewModel
@@ -12,9 +13,9 @@ namespace Transport.Notes.WPF.ViewModel
 
         public ICommand LoginCommand { get; set; }
 
-        public LoginViewModel(IRenavigator registerRenavigator,IRenavigator loginRenavigator)
+        public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigator, IRenavigator registerRenavigator)
         {
-            LoginCommand = new LoginCommand(this,loginRenavigator);
+            LoginCommand = new LoginCommand(this, authenticator, loginRenavigator);
             ViewRegisterCommand = new RenavigateCommand(registerRenavigator);
         }
     }

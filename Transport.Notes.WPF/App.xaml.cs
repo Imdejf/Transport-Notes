@@ -1,3 +1,4 @@
+using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,11 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Transport.Notes.Domain.Services;
+using Transport.Notes.Domain.Services.AuthenticationService;
+using Transport.Notes.EntityFramework.Services;
+using Transport.Notes.WPF.State.Accounts;
+using Transport.Notes.WPF.State.Authenticators;
 using Transport.Notes.WPF.State.Navigators;
 using Transport.Notes.WPF.ViewModel;
 using Transport.Notes.WPF.ViewModel.Factories;
@@ -31,9 +37,19 @@ namespace Transport.Notes.WPF
         {
             IServiceCollection services = new ServiceCollection();
 
+            services.AddSingleton<IAccountService, AccountDataService>();
+
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
+            services.AddSingleton<IAccountStore, AccountStore>();
 
             #region Views
-            services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
+            services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<HomeViewModel>();
+            });
+
+            services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
             services.AddSingleton<CreateViewModel<RegisterViewModel>>(services =>
             {
                 return () => new RegisterViewModel(
@@ -41,17 +57,21 @@ namespace Transport.Notes.WPF
                     ) ;
             });
 
-            services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
+            services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
+            services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
             services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
             {
                 return () => new LoginViewModel(
-                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>(),
+                    services.GetRequiredService<IAuthenticator>(),
+                    services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
                     services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
-                    );
+                    ); 
             });
 
             #endregion
 
+            services.AddSingleton<IAuthenticator, Authenticator>();
+            services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<ITransportNotesViewModelFacotry, TransportNotesViewModelFacotry>();
             services.AddSingleton<INavigator, Navigator>();
 
