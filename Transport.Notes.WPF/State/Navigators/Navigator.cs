@@ -8,8 +8,6 @@ namespace Transport.Notes.WPF.State.Navigators
     public class Navigator : INavigator
     {
         private ViewModelBase _currentViewModel;
-
-        public event Action StateChanged;
         public ViewModelBase CurrentViewModel
         {
             get
@@ -22,5 +20,7 @@ namespace Transport.Notes.WPF.State.Navigators
                 StateChanged?.Invoke();
             }
         }
+        public event Action StateChanged;
+
     }
 }

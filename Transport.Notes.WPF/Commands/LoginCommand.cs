@@ -1,34 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Transport.Notes.Domain.Exceptions;
+using Transport.Notes.Domain.Expections;
+using Transport.Notes.WPF.State.Authenticators;
 using Transport.Notes.WPF.State.Navigators;
 using Transport.Notes.WPF.ViewModel;
 
 namespace Transport.Notes.WPF.Commands
 {
-    public class LoginCommand : ICommand
+    public class LoginCommand : AsyncCommandBase
     {
         private readonly LoginViewModel _loginViewModel;
+        private readonly IAuthenticator _authenticator;
         private readonly IRenavigator _renavigator;
 
-        public LoginCommand(LoginViewModel loginViewModel, IRenavigator renavigator)
+        public LoginCommand(LoginViewModel loginViewModel, IAuthenticator authenticator, IRenavigator renavigator)
         {
             _loginViewModel = loginViewModel;
+            _authenticator = authenticator;
             _renavigator = renavigator;
         }
 
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter)
+        public override async Task ExecuteAsync(object parameter)
         {
-            return true;
-        }
-
-        public void Execute(object parameter)
-        {
-            Application.Current.MainWindow.WindowState = WindowState.Maximized;
+            try
+            {
+                await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
+                Application.Current.MainWindow.WindowState = WindowState.Maximized;
+                _renavigator.Renavigator();
+            }
+            catch(UserNotFounException)
+            {
+                MessageBox.Show("Username");
+            }
+            catch(InvalidPasswordException)
+            {
+                MessageBox.Show("Password");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"{ex}");
+            }
         }
     }
 }

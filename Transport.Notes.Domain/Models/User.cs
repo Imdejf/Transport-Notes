@@ -1,4 +1,6 @@
-﻿namespace Transport.Notes.Domain.Models
+﻿using System;
+
+namespace Transport.Notes.Domain.Models
 {
     public class User : DomainObject
     {

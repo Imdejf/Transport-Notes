@@ -41,9 +41,11 @@ namespace Transport.Notes.WPF
 
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddSingleton<IAccountStore, AccountStore>();
+            services.AddSingleton<HomeViewModel>(services => new HomeViewModel(
+            ));
 
             #region Views
-            services.AddSingleton<HomeViewModel>();
+
             services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
             {
                 return () => services.GetRequiredService<HomeViewModel>();

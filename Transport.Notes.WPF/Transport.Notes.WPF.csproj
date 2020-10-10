@@ -25,6 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Transport.Notes.Domain\Transport.Notes.Domain.csproj" />
+    <ProjectReference Include="..\Transport.Notes.EntityFramework\Transport.Notes.EntityFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\accounting.png" />
     <Resource Include="Resources\car-service.png" />
     <Resource Include="Resources\delivery-truck.png" />

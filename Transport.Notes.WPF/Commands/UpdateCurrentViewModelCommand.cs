@@ -9,6 +9,8 @@ namespace Transport.Notes.WPF.Commands
 {
     public class UpdateCurrentViewModelCommand : ICommand
     {
+        public event EventHandler CanExecuteChanged;
+
         private readonly INavigator _navigator;
         private readonly ITransportNotesViewModelFacotry _viewModelFacotry;
 
@@ -17,8 +19,6 @@ namespace Transport.Notes.WPF.Commands
             _navigator = navigator;
             _viewModelFacotry = viewModelFacotry;
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -31,7 +31,7 @@ namespace Transport.Notes.WPF.Commands
             {
                 ViewType viewType = (ViewType)parameter;
 
-                _navigator.CurrentViewModel = _viewModelFacotry.CreateViewModel(viewType);
+                 _navigator.CurrentViewModel = _viewModelFacotry.CreateViewModel(viewType);
             }
         }
     }

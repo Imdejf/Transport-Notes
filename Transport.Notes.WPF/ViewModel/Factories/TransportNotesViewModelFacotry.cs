@@ -5,22 +5,24 @@ namespace Transport.Notes.WPF.ViewModel.Factories
 {
     class TransportNotesViewModelFacotry : ITransportNotesViewModelFacotry
     {
+        private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
-        private readonly CreateViewModel<RegisterViewModel> _createRegisterViewModel;
 
-        public TransportNotesViewModelFacotry(CreateViewModel<LoginViewModel> createLoginViewModel,CreateViewModel<RegisterViewModel> createRegisterViewModel)
+        public TransportNotesViewModelFacotry(CreateViewModel<HomeViewModel> createHomeViewModel,CreateViewModel<LoginViewModel> createLoginViewModel
+                                              )
         {
+            _createHomeViewModel = createHomeViewModel;
             _createLoginViewModel = createLoginViewModel;
-            _createRegisterViewModel = createRegisterViewModel;
+
         }
         public ViewModelBase CreateViewModel(ViewType viewType)
         {
             switch(viewType)
             {
+                case ViewType.Home:
+                    return _createHomeViewModel();
                 case ViewType.Login:
                     return _createLoginViewModel();
-                case ViewType.Register:
-                    return _createRegisterViewModel();
                 default:
                     throw new ArgumentException("The ViewType does not have a ViewModel", "ViewType");            }
         }
