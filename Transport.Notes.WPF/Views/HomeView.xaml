@@ -6,6 +6,6 @@
              xmlns:local="clr-namespace:Transport.Notes.WPF.Views" xmlns:controls="clr-namespace:Transport.Notes.WPF.Controls"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="Yellow">
+    <Grid>
     </Grid>
 </UserControl>

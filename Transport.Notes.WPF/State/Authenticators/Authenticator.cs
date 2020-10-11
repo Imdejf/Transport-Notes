@@ -38,7 +38,10 @@ namespace Transport.Notes.WPF.State.Authenticators
         {
             CurrentAccount = await _authenticationService.Login(username, password);
         }
-
+        public async Task<RegisterResult> Register(string username, string email, string password, string confirmPassword)
+        {
+            return await _authenticationService.Register(username, email, password, confirmPassword);
+        }
         public void Logout()
         {
             CurrentAccount = null;

@@ -13,5 +13,6 @@ namespace Transport.Notes.Domain.Services.AuthenticationService
     public interface IAuthenticationService
     {
         Task<Account> Login(string username, string password);
+        Task<RegisterResult> Register(string username,string email, string password, string confirmPassword);
     }
 }

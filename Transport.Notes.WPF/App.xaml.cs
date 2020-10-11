@@ -7,8 +7,10 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services;
 using Transport.Notes.Domain.Services.AuthenticationService;
+using Transport.Notes.EntityFramework;
 using Transport.Notes.EntityFramework.Services;
 using Transport.Notes.WPF.State.Accounts;
 using Transport.Notes.WPF.State.Authenticators;
@@ -37,10 +39,13 @@ namespace Transport.Notes.WPF
         {
             IServiceCollection services = new ServiceCollection();
 
+            services.AddSingleton<TransportNotesDbContextFacotry>();
+            services.AddSingleton<IDataService<Account>, AccountDataService>();
             services.AddSingleton<IAccountService, AccountDataService>();
-
-            services.AddSingleton<IPasswordHasher, PasswordHasher>();
             services.AddSingleton<IAccountStore, AccountStore>();
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
+
+            services.AddSingleton<ITransportNotesViewModelFacotry, TransportNotesViewModelFacotry>();
             services.AddSingleton<HomeViewModel>(services => new HomeViewModel(
             ));
 
@@ -55,6 +60,8 @@ namespace Transport.Notes.WPF
             services.AddSingleton<CreateViewModel<RegisterViewModel>>(services =>
             {
                 return () => new RegisterViewModel(
+                    services.GetRequiredService<IAuthenticator>(),
+                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>(),
                     services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
                     ) ;
             });
@@ -74,7 +81,6 @@ namespace Transport.Notes.WPF
 
             services.AddSingleton<IAuthenticator, Authenticator>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
-            services.AddSingleton<ITransportNotesViewModelFacotry, TransportNotesViewModelFacotry>();
             services.AddSingleton<INavigator, Navigator>();
 
             services.AddScoped<MainViewModel>();

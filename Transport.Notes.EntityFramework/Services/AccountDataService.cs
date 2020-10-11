@@ -1,48 +1,80 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services;
+using Transport.Notes.EntityFramework.Services.Common;
 
 namespace Transport.Notes.EntityFramework.Services
 {
     public class AccountDataService : IAccountService
     {
-        public Task<Account> Create(Account entity)
+        private readonly TransportNotesDbContextFacotry _contextFacotry;
+        private readonly NonQueryService<Account> _nonQueryService;
+
+        public AccountDataService(TransportNotesDbContextFacotry contextFactory)
         {
-            throw new NotImplementedException();
+            _contextFacotry = contextFactory;
+            _nonQueryService = new NonQueryService<Account>(contextFactory);
+        }
+        public async Task<Account> Create(Account entity)
+        {
+            return await _nonQueryService.Create(entity);
         }
 
-        public Task<bool> Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            throw new NotImplementedException();
+            return await _nonQueryService.Delete(id);
         }
 
-        public Task<Account> Get(int id)
+        public async Task<Account> Get(int id)
         {
-            throw new NotImplementedException();
+            using(TransportNotesDbContext context = _contextFacotry.CreateDbContext())
+            {
+                Account entity = await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .FirstOrDefaultAsync((e) => e.Id == id);
+                return entity;
+            }
         }
 
-        public Task<IEnumerable> GetAll()
+        public async Task<IEnumerable<Account>> GetAll()
         {
-            throw new NotImplementedException();
+            using(TransportNotesDbContext context = _contextFacotry.CreateDbContext())
+            {
+                IEnumerable<Account> entities = await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .ToListAsync();
+                return entities;
+            }
         }
 
-        public Task<Account> GetByEmail(string email)
+        public async Task<Account> GetByEmail(string email)
         {
-            throw new NotImplementedException();
+            using(TransportNotesDbContext context = _contextFacotry.CreateDbContext())
+            {
+                return await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .FirstOrDefaultAsync(a => a.AccountHolder.Email == email);
+            }
         }
 
-        public Task<Account> GetByUsername(string username)
+        public async Task<Account> GetByUsername(string username)
         {
-            throw new NotImplementedException();
+            using(TransportNotesDbContext context = _contextFacotry.CreateDbContext())
+            {
+                return await context.Accounts
+                    .Include(a => a.AccountHolder)
+                    .FirstOrDefaultAsync(a => a.AccountHolder.Username == username);
+            }
         }
 
-        public Task<Account> Update(Account entity, int id)
+        public async Task<Account> Update(Account entity, int id)
         {
-            throw new NotImplementedException();
+            return await _nonQueryService.Update(id, entity);
         }
     }
 }

@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:Transport.Notes.WPF"
         xmlns:controls="clr-namespace:Transport.Notes.WPF.Controls"
         mc:Ignorable="d"
-        Title="Transport Notes" Height="450" Width="800">
+        Title="Transport Notes" Height="500" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
