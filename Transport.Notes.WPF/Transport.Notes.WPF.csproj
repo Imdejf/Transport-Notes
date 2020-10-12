@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Resources\accounting.png" />
+    <None Remove="Resources\add.png" />
     <None Remove="Resources\car-service.png" />
     <None Remove="Resources\delivery-truck.png" />
     <None Remove="Resources\log-out.png" />
@@ -31,6 +32,7 @@
 
   <ItemGroup>
     <Resource Include="Resources\accounting.png" />
+    <Resource Include="Resources\add.png" />
     <Resource Include="Resources\car-service.png" />
     <Resource Include="Resources\delivery-truck.png" />
     <Resource Include="Resources\log-out.png" />

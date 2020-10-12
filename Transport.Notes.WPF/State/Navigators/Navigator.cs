@@ -20,6 +20,7 @@ namespace Transport.Notes.WPF.State.Navigators
                 StateChanged?.Invoke();
             }
         }
+
         public event Action StateChanged;
 
     }

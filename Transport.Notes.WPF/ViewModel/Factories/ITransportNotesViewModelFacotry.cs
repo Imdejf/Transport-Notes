@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Transport.Notes.WPF.State.Navigators;
+﻿using Transport.Notes.WPF.State.Navigators;
 
 namespace Transport.Notes.WPF.ViewModel.Factories
 {

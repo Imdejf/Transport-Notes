@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Transport.Notes.WPF"
              xmlns:viewmodel="clr-namespace:Transport.Notes.WPF.ViewModel"
+             xmlns:viewmodelcontrol="clr-namespace:Transport.Notes.WPF.ViewModel.ControlViewModel"
              xmlns:view="clr-namespace:Transport.Notes.WPF.Views"
+             xmlns:viewControl ="clr-namespace:Transport.Notes.WPF.Controls.Category"
              >
     <Application.Resources>
         <ResourceDictionary>
@@ -12,7 +14,14 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
+                <ResourceDictionary Source="/Style/NavigationBar.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type viewmodel:StartViewModel}">
+                <view:StartView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodelcontrol:InventoryControlViewModel}">
+                <viewControl:VehiclesControl/>
+            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
                 <view:HomeView/>
             </DataTemplate>

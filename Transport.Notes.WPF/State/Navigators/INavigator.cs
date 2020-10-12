@@ -5,15 +5,15 @@ using Transport.Notes.WPF.ViewModel;
 
 namespace Transport.Notes.WPF.State.Navigators
 {
-    public enum ViewType
+  public enum ViewType
     {
         Login,
+        Start,
         Home,
-        Register
     }
     public interface INavigator
     {
         ViewModelBase CurrentViewModel { get; set; }
         event Action StateChanged;
-    }
+    }  
 }

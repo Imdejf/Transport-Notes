@@ -1,11 +1,6 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services;
@@ -14,8 +9,11 @@ using Transport.Notes.EntityFramework;
 using Transport.Notes.EntityFramework.Services;
 using Transport.Notes.WPF.State.Accounts;
 using Transport.Notes.WPF.State.Authenticators;
+using Transport.Notes.WPF.State.NavigatorControls;
 using Transport.Notes.WPF.State.Navigators;
 using Transport.Notes.WPF.ViewModel;
+using Transport.Notes.WPF.ViewModel.ControlViewModel;
+using Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl;
 using Transport.Notes.WPF.ViewModel.Factories;
 using Transport.Notes.WPF.Views;
 
@@ -45,12 +43,23 @@ namespace Transport.Notes.WPF
             services.AddSingleton<IAccountStore, AccountStore>();
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
+            services.AddSingleton<ITransportNotesViewModelControlFacotry, TransportNotesViewModelControlFacotry>();
             services.AddSingleton<ITransportNotesViewModelFacotry, TransportNotesViewModelFacotry>();
             services.AddSingleton<HomeViewModel>(services => new HomeViewModel(
             ));
-
+            #region ControlViews
+            services.AddSingleton<InventoryControlViewModel>();
+            services.AddSingleton<CreateViewModel<InventoryControlViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<InventoryControlViewModel>();
+            });
+            #endregion
             #region Views
-
+            services.AddSingleton<StartViewModel>();
+            services.AddSingleton<CreateViewModel<StartViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<StartViewModel>();
+            });
             services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
             {
                 return () => services.GetRequiredService<HomeViewModel>();
@@ -61,26 +70,28 @@ namespace Transport.Notes.WPF
             {
                 return () => new RegisterViewModel(
                     services.GetRequiredService<IAuthenticator>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
+                    services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>(),
+                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
                     ) ;
             });
 
+            services.AddSingleton<ViewModelDelegateRenavigator<StartViewModel>>();
             services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
             services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
             services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
             {
                 return () => new LoginViewModel(
                     services.GetRequiredService<IAuthenticator>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<HomeViewModel>>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
-                    ); 
+                    services.GetRequiredService<ViewModelDelegateRenavigator<StartViewModel>>(),
+                    services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
+                    ); ; 
             });
 
             #endregion
 
             services.AddSingleton<IAuthenticator, Authenticator>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
+            services.AddSingleton<INavigatorControl, NavigatorControl>();
             services.AddSingleton<INavigator, Navigator>();
 
             services.AddScoped<MainViewModel>();
