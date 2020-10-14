@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Transport.Notes.WPF.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="DodgerBlue">
+    <Grid Background="#627792">
         <TextBlock Text="OBRAZ TESTOWY(START)" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"/>
     </Grid>
 </UserControl>
