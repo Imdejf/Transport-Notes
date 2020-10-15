@@ -71,8 +71,8 @@ namespace Transport.Notes.WPF
                 return () => new RegisterViewModel(
                     services.GetRequiredService<IAuthenticator>(),
                     services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
-                    ) ;
+                    services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
+                    );
             });
 
             services.AddSingleton<ViewModelDelegateRenavigator<StartViewModel>>();
@@ -83,7 +83,7 @@ namespace Transport.Notes.WPF
                 return () => new LoginViewModel(
                     services.GetRequiredService<IAuthenticator>(),
                     services.GetRequiredService<ViewModelDelegateRenavigator<StartViewModel>>(),
-                    services.GetRequiredService<ViewModelDelegateRenavigator<LoginViewModel>>()
+                    services.GetRequiredService<ViewModelDelegateRenavigator<RegisterViewModel>>()
                     ); ; 
             });
 

@@ -11,6 +11,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
@@ -27,6 +28,14 @@
             <controls:NavigationBar/>
         </Grid>
         <Grid Grid.Column="1">
+            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <ContentControl Content="{Binding CurrentControlViewModel}"/>
+            </ScrollViewer>
+        </Grid>
+        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <ContentControl Content="{Binding CurrentViewModel}"/>
+        </ScrollViewer>
+        <Grid Grid.Column="3" HorizontalAlignment="Right">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Style.Triggers>
@@ -36,14 +45,8 @@
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
-            <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-                <ContentControl Content="{Binding CurrentControlViewModel}"/>
-            </ScrollViewer>
+            <controls:WidgetControl/>
         </Grid>
-
-
-        <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
-            <ContentControl Content="{Binding CurrentViewModel}"/>
-        </ScrollViewer>
     </Grid>
+    
 </Window>
