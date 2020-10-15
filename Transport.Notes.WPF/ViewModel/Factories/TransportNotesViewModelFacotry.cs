@@ -10,16 +10,12 @@ namespace Transport.Notes.WPF.ViewModel.Factories
         private readonly CreateViewModel<HomeViewModel> _createHomeViewModel;
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
 
-        private readonly CreateViewModel<InventoryControlViewModel> _createInventoryControlViewModel;
         public TransportNotesViewModelFacotry(CreateViewModel<HomeViewModel> createHomeViewModel, CreateViewModel<LoginViewModel> createLoginViewModel,
                                               CreateViewModel<StartViewModel> createStartViewModel,CreateViewModel<InventoryControlViewModel> createInventoryControlViewModel)
         {
             _createHomeViewModel = createHomeViewModel;
             _createLoginViewModel = createLoginViewModel;
             _createStartViewModel = createStartViewModel;
-
-            _createInventoryControlViewModel = createInventoryControlViewModel;
-
         }
         public ViewModelBase CreateViewModel(ViewType viewType)
         {

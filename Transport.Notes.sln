@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transport.Notes.Domain", "T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Transport.Notes.WPF", "Transport.Notes.WPF\Transport.Notes.WPF.csproj", "{B4CD4E2D-4749-43EC-B975-48B54D12AE00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transport.Notes.Tests", "Transport.Notes.Tests\Transport.Notes.Tests.csproj", "{583143AE-30E3-488B-86EF-1EE342EE8823}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B4CD4E2D-4749-43EC-B975-48B54D12AE00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4CD4E2D-4749-43EC-B975-48B54D12AE00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4CD4E2D-4749-43EC-B975-48B54D12AE00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{583143AE-30E3-488B-86EF-1EE342EE8823}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{583143AE-30E3-488B-86EF-1EE342EE8823}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{583143AE-30E3-488B-86EF-1EE342EE8823}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{583143AE-30E3-488B-86EF-1EE342EE8823}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
