@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Border HorizontalAlignment="Right" Width="150" CornerRadius="30 0 0 30" Background="AntiqueWhite">
-            <TextBlock></TextBlock>
+        <Border HorizontalAlignment="Right" Width="150" CornerRadius="30 0 0 30" Background="Red">
         </Border>
     </Grid>
 </UserControl>

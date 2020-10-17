@@ -8,8 +8,8 @@ namespace Transport.Notes.Domain.Exceptions
 {
     public class InvalidPasswordException : Exception
     {
-        private string Username { get; set; }
-        private string Password { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
 
         public InvalidPasswordException(string username, string password)
         {

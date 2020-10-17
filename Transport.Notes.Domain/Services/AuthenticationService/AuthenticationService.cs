@@ -24,7 +24,7 @@ namespace Transport.Notes.Domain.Services.AuthenticationService
             
             if(storedAccount == null)
             {
-                throw new UserNotFounException(username);
+                throw new UserNotFoundException(username);
             }
 
             PasswordVerificationResult passwordVerification = _passwordHasher.VerifyHashedPassword(storedAccount.AccountHolder.PasswordHash, password);
