@@ -15,6 +15,7 @@ using Transport.Notes.WPF.ViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl;
 using Transport.Notes.WPF.ViewModel.Factories;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel;
 using Transport.Notes.WPF.Views;
 
 namespace Transport.Notes.WPF
@@ -45,24 +46,11 @@ namespace Transport.Notes.WPF
 
             services.AddSingleton<ITransportNotesViewModelControlFacotry, TransportNotesViewModelControlFacotry>();
             services.AddSingleton<ITransportNotesViewModelFacotry, TransportNotesViewModelFacotry>();
-            services.AddSingleton<HomeViewModel>(services => new HomeViewModel(
-            ));
-            #region ControlViews
-            services.AddSingleton<InventoryControlViewModel>();
-            services.AddSingleton<CreateViewModel<InventoryControlViewModel>>(services =>
-            {
-                return () => services.GetRequiredService<InventoryControlViewModel>();
-            });
-            #endregion
             #region Views
             services.AddSingleton<StartViewModel>();
             services.AddSingleton<CreateViewModel<StartViewModel>>(services =>
             {
                 return () => services.GetRequiredService<StartViewModel>();
-            });
-            services.AddSingleton<CreateViewModel<HomeViewModel>>(services =>
-            {
-                return () => services.GetRequiredService<HomeViewModel>();
             });
 
             services.AddSingleton<ViewModelDelegateRenavigator<LoginViewModel>>();
@@ -76,7 +64,6 @@ namespace Transport.Notes.WPF
             });
 
             services.AddSingleton<ViewModelDelegateRenavigator<StartViewModel>>();
-            services.AddSingleton<ViewModelDelegateRenavigator<HomeViewModel>>();
             services.AddSingleton<ViewModelDelegateRenavigator<RegisterViewModel>>();
             services.AddSingleton<CreateViewModel<LoginViewModel>>(services =>
             {
@@ -89,6 +76,40 @@ namespace Transport.Notes.WPF
 
             #endregion
 
+            #region ControlViews
+            services.AddSingleton<InventoryControlViewModel>();
+            services.AddSingleton<CreateViewModel<InventoryControlViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<InventoryControlViewModel>();
+            });
+            #endregion
+
+            #region InventoryViews
+            services.AddSingleton<VehicleEquipmentViewModel>();
+            services.AddSingleton<CreateViewModel<VehicleEquipmentViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<VehicleEquipmentViewModel>();
+            });
+ 
+            services.AddSingleton<MenageFleetViewModel>();
+            services.AddSingleton<CreateViewModel<MenageFleetViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<MenageFleetViewModel>();
+            });
+
+
+            services.AddSingleton<DriversBaseViewModel>();
+            services.AddSingleton<CreateViewModel<DriversBaseViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<DriversBaseViewModel>();
+            });
+
+            services.AddSingleton<GeneralInformationViewModel>();
+            services.AddSingleton<CreateViewModel<GeneralInformationViewModel>>(services =>
+            {
+                return () => services.GetRequiredService<GeneralInformationViewModel>();
+            });
+            #endregion
             services.AddSingleton<IAuthenticator, Authenticator>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();

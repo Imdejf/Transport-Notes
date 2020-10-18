@@ -7,7 +7,7 @@ namespace Transport.Notes.WPF.State.NavigatorControls
 {
     public enum ViewTypeControl
     {
-        InventoryControl,
+        Inventory
     }
     public interface INavigatorControl
     {

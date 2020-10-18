@@ -19,6 +19,18 @@
     <Compile Update="MainWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\InventoryViews\DriversBaseView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\InventoryViews\GeneralInformationView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\InventoryViews\MenageFleetView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\InventoryViews\VehicleEquipmentView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\LoginView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -40,6 +52,18 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Style\NavigationBar.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InventoryViews\DriversBaseView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InventoryViews\GeneralInformationView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InventoryViews\MenageFleetView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\InventoryViews\VehicleEquipmentView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\LoginView.xaml">

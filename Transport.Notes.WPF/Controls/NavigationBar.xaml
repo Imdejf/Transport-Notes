@@ -68,7 +68,7 @@
                             <Button Width="50"
                                  
                                  Command="{Binding UpdateCurrentControlViewModelCommand}"
-                                 CommandParameter="{x:Static nav:ViewTypeControl.InventoryControl}"
+                                 CommandParameter="{x:Static nav:ViewTypeControl.Inventory}"
                                  >
                                 <Image Source="C:\Users\dawid\source\repos\Transport.Notes\Transport.Notes.WPF\Resources\shipping.png"/>
                             </Button>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:nav="clr-namespace:Transport.Notes.WPF.State.Navigators"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Transport.Notes.WPF.Controls.Category"
              mc:Ignorable="d" 
@@ -27,7 +28,9 @@
                     <TextBlock Text="Inventory" FontSize="25" TextAlignment="Left" FontWeight="Bold" Foreground="DarkSlateGray" VerticalAlignment="Center" Margin="0 15 0 0"/>
                 </StackPanel>
                 <Grid Grid.Row="1" Margin="0 10 0 0">
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Command="{Binding UpdateCurrentViewModelCommand}"
+                            CommandParameter="{x:Static nav:ViewType.DriversBase }">
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="19"/>
                         </Button.Effect>
@@ -46,7 +49,10 @@
 
                     </Grid>
                 <Grid Grid.Row="2" Margin="0 10 0 0">
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Command="{Binding UpdateCurrentViewModelCommand}"
+                            CommandParameter="{x:Static nav:ViewType.VehicleEquipment }"
+                            >
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="19"/>
                         </Button.Effect>
@@ -65,7 +71,10 @@
 
                 </Grid>
                 <Grid Grid.Row="3" Margin="0 10 0 0">
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Command="{Binding UpdateCurrentViewModelCommand}"
+                            CommandParameter="{x:Static nav:ViewType.DriversBase}"
+                            >
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="19"/>
                         </Button.Effect>
@@ -84,7 +93,10 @@
 
                 </Grid>
                 <Grid Grid.Row="4" Margin="0 10 0 0">
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                            Command="{Binding UpdateCurrentViewModelCommand}"
+                            CommandParameter="{x:Static nav:ViewType.GeneralInformation }"
+                            >
                         <Button.Effect>
                             <DropShadowEffect BlurRadius="19"/>
                         </Button.Effect>

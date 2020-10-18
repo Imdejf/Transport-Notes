@@ -4,8 +4,10 @@
              xmlns:local="clr-namespace:Transport.Notes.WPF"
              xmlns:viewmodel="clr-namespace:Transport.Notes.WPF.ViewModel"
              xmlns:viewmodelcontrol="clr-namespace:Transport.Notes.WPF.ViewModel.ControlViewModel"
+             xmlns:viewmodelInventory="clr-namespace:Transport.Notes.WPF.ViewModel.InventoryViewModel"
              xmlns:view="clr-namespace:Transport.Notes.WPF.Views"
              xmlns:viewControl ="clr-namespace:Transport.Notes.WPF.Controls.Category"
+             xmlns:viewInventory="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
              >
     <Application.Resources>
         <ResourceDictionary>
@@ -23,14 +25,23 @@
             <DataTemplate DataType="{x:Type viewmodelcontrol:InventoryControlViewModel}">
                 <viewControl:VehiclesControl/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodel:HomeViewModel}">
-                <view:HomeView/>
-            </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodel:LoginViewModel}">
                 <view:LoginView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodel:RegisterViewModel}">
                 <view:RegisterView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodelInventory:VehicleEquipmentViewModel}">
+                <viewInventory:VehicleEquipmentView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodelInventory:MenageFleetViewModel}">
+                <viewInventory:MenageFleetView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodelInventory:DriversBaseViewModel}">
+                <viewInventory:DriversBase/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type viewmodelInventory:GeneralInformationViewModel}">
+                <viewInventory:GeneralInformation/>
             </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>

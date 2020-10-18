@@ -11,8 +11,8 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Column="0">
@@ -35,7 +35,8 @@
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <ContentControl Content="{Binding CurrentViewModel}"/>
         </ScrollViewer>
-        <Grid Grid.Column="3" HorizontalAlignment="Right">
+
+        <Grid Grid.Column="3">
             <Grid.Style>
                 <Style TargetType="Grid">
                     <Style.Triggers>

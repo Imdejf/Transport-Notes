@@ -8,17 +8,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Transport.Notes.WPF.Views
+namespace Transport.Notes.WPF.Views.InventoryViews
 {
     /// <summary>
-    /// Logika interakcji dla klasy HomeView.xaml
+    /// Logika interakcji dla klasy MenageFleetView.xaml
     /// </summary>
-    public partial class HomeView : UserControl
+    public partial class MenageFleetView : UserControl
     {
-        public HomeView()
+        public MenageFleetView()
         {
             InitializeComponent();
         }
