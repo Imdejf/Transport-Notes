@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
+    <Grid>
         <TextBlock Text="DriversBase" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100"></TextBlock>
     </Grid>
 </UserControl>

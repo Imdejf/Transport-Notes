@@ -18,6 +18,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
                 <ResourceDictionary Source="/Style/NavigationBar.xaml"/>
                 <ResourceDictionary Source="/Style/InventoryControl.xaml"/>
+                <ResourceDictionary Source="/Style/InventoryButton.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <DataTemplate DataType="{x:Type viewmodel:StartViewModel}">
                 <view:StartView/>

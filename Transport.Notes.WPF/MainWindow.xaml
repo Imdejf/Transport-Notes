@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Transport.Notes.WPF"
         xmlns:controls="clr-namespace:Transport.Notes.WPF.Controls"
+        xmlns:testcontrol="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
         mc:Ignorable="d"
         Title="Transport Notes" Height="500" Width="800">
-    <Grid>
+    <Grid Background="#f9f8f4">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -35,7 +36,6 @@
         <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
             <ContentControl Content="{Binding CurrentViewModel}"/>
         </ScrollViewer>
-
         <Grid Grid.Column="3">
             <Grid.Style>
                 <Style TargetType="Grid">

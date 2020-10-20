@@ -4,9 +4,77 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        Height="auto" Width="800">
     <Grid>
-        <TextBlock Text="MENAGE FLEET" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="20 5 20 0">
+            <TextBox HorizontalAlignment="Left" Background="White" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Car brand" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <TextBox Background="White" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="VIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <TextBox HorizontalAlignment="Right" Background="White" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Engine number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20">
+            <TextBox HorizontalAlignment="Left" Background="White" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mileage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <TextBox Background="White" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Car brand" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <DatePicker HorizontalAlignment="Right" Height="50" Width="200" materialDesign:HintAssist.Hint="First registration" FontSize="18" Background="White"></DatePicker>
+        </Grid>
+        <Grid Grid.Row="2" Margin="20 0 20 0">
+            <TextBox HorizontalAlignment="Left" Background="White" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Registration number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <DatePicker HorizontalAlignment="Center" Height="50" Width="200" materialDesign:HintAssist.Hint="Year of purchase" FontSize="18" Background="White"></DatePicker>
+            <DatePicker HorizontalAlignment="Right" Height="50" Width="200" materialDesign:HintAssist.Hint="Year of production" FontSize="18" Background="White"></DatePicker>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Button Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Left" Margin="40 20 0 0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF5DFF00"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Content>
+                    <TextBlock Text="Add" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                </Button.Content>
+            </Button>
+            <Button Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF0051FF"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Content>
+                    <TextBlock Text="Update" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                </Button.Content>
+            </Button>
+            <Button Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Right" Margin="0 20 40 0">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFFF3A00"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.Content>
+                    <TextBlock Text="Clear All" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                </Button.Content>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="4">
+            <DataGrid MaxHeight="500" MinHeight="400" Margin="0 10 0 0">
+                <DataGrid.Background>
+                    <LinearGradientBrush EndPoint="0.5,0.1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFB0A2F3"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </DataGrid.Background>
+
+            </DataGrid>
+        </Grid>
     </Grid>
 </UserControl>
