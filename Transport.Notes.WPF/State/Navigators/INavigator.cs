@@ -9,7 +9,10 @@ namespace Transport.Notes.WPF.State.Navigators
     {
         Login,
         Start,
-        Home,
+        DriversBase,
+        MenageFleet,
+        VehicleEquipment,
+        GeneralInformation
     }
     public interface INavigator
     {

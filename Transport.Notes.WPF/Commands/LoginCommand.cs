@@ -35,7 +35,7 @@ namespace Transport.Notes.WPF.Commands
                 Application.Current.MainWindow.WindowState = WindowState.Maximized;
                 _renavigator.Renavigator();
             }
-            catch(UserNotFounException)
+            catch(UserNotFoundException)
             {
                 MessageBox.Show("Username");
             }

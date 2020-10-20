@@ -9,19 +9,25 @@
   <ItemGroup>
     <None Remove="Resources\accounting.png" />
     <None Remove="Resources\add.png" />
+    <None Remove="Resources\bus-driver.png" />
     <None Remove="Resources\car-service.png" />
+    <None Remove="Resources\delete.png" />
     <None Remove="Resources\delivery-truck.png" />
+    <None Remove="Resources\document.png" />
     <None Remove="Resources\log-out.png" />
     <None Remove="Resources\LoginPicture.jpg" />
     <None Remove="Resources\map.png" />
     <None Remove="Resources\menu.png" />
+    <None Remove="Resources\parking.png" />
+    <None Remove="Resources\refresh.png" />
     <None Remove="Resources\shipping.png" />
+    <None Remove="Resources\tool-box.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="MaterialDesignColors" Version="1.2.7" />
     <PackageReference Include="MaterialDesignThemes" Version="3.2.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.8" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.9" />
     <PackageReference Include="PasswordBoxMVVM" Version="1.0.5" />
   </ItemGroup>
 
@@ -33,13 +39,19 @@
   <ItemGroup>
     <Resource Include="Resources\accounting.png" />
     <Resource Include="Resources\add.png" />
+    <Resource Include="Resources\bus-driver.png" />
     <Resource Include="Resources\car-service.png" />
+    <Resource Include="Resources\delete.png" />
     <Resource Include="Resources\delivery-truck.png" />
+    <Resource Include="Resources\document.png" />
     <Resource Include="Resources\log-out.png" />
     <Resource Include="Resources\LoginPicture.jpg" />
     <Resource Include="Resources\map.png" />
     <Resource Include="Resources\menu.png" />
+    <Resource Include="Resources\parking.png" />
+    <Resource Include="Resources\refresh.png" />
     <Resource Include="Resources\shipping.png" />
+    <Resource Include="Resources\tool-box.png" />
   </ItemGroup>
 
 </Project>

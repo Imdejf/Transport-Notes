@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Transport.Notes.WPF.State.NavigatorControls;
 
 namespace Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl
@@ -19,7 +16,7 @@ namespace Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl
         {
             switch (viewType)
             {
-                case ViewTypeControl.InventoryControl:
+                case ViewTypeControl.Inventory:
                     return _createInventoryViewModel();
                 default:
                     throw new ArgumentException("The ViewType does not have a ViewModel", "ViewType");

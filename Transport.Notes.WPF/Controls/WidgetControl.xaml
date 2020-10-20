@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="Transport.Notes.WPF.Controls.WidgetControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Transport.Notes.WPF.Controls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="#f9f8f4">
+        <Border HorizontalAlignment="Right" Width="150" CornerRadius="30 0 0 30" Background="White" >
+            <StackPanel>
+                <StackPanel Margin="10 20 10 10">
+                    <StackPanel.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFF4949"/>
+                            <GradientStop Color="#FFF1753B" Offset="1"/>
+                        </LinearGradientBrush>
+                    </StackPanel.Background>
+
+                    <TextBox HorizontalAlignment="Center" Margin="0 0 0 0 " Foreground="#FFEAEAEA" FontSize="15" Text="{Binding Source={x:Static sys:DateTime.Now}, Mode=OneWay,  StringFormat='yyyy-MM-dd &#10; HH:mm:ss' }" FontWeight="Bold" TextAlignment="Center" VerticalAlignment="Top" Width="120"/>
+
+                </StackPanel>
+
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

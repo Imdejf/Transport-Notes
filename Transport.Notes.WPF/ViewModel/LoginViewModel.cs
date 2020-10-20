@@ -23,7 +23,7 @@ namespace Transport.Notes.WPF.ViewModel
             }
         }
 
-        private string _password;
+        private string _password = "Test123";
         public string Password
         {
             get
