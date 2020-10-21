@@ -62,5 +62,47 @@ namespace Transport.Notes.Tests.Services
             string actualUsername = exception.Username;
             Assert.AreEqual(expectedUsername, actualUsername);
         }
+        [Test]
+        public async Task Register_WithPasswordsNotMatching_ReturnsPasswordsDoNotMatch()
+        {
+            string password = "testpassword";
+            string confirmPassword = "confirmpassword";
+            RegisterResult expected = RegisterResult.PasswordDoNotMatch;
+
+            RegisterResult actual = await _authenticationService.Register(It.IsAny<string>(), It.IsAny<string>(), password, confirmPassword);
+
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public async Task Register_WithAlreadyExistingEmail_ReturnsEmailAlreadyExists()
+        {
+            string email = "test@gmail.pl";
+            _mockAccountService.Setup(s => s.GetByEmail(email)).ReturnsAsync(new Account());
+            RegisterResult expected = RegisterResult.EmailAlreadyExists;
+
+            RegisterResult actual = await _authenticationService.Register(It.IsAny<string>(), email, It.IsAny<string>(), It.IsAny<string>());
+
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public async Task Register_WithAlreadyExistingUsername_ReturnsUsernameAlreadyExists()
+        {
+            string username = "testuser";
+            _mockAccountService.Setup(s => s.GetByUsername(username)).ReturnsAsync(new Account());
+            RegisterResult expected = RegisterResult.UsernameAlreadyExists;
+
+            RegisterResult actual = await _authenticationService.Register(username, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
+
+            Assert.AreEqual(expected, actual);
+        }
+        [Test]
+        public async Task Register_WithNonExistingUserAndMatchingPasswords_ReturnsSuccess()
+        {
+            RegisterResult expected = RegisterResult.Succes;
+
+            RegisterResult actual = await _authenticationService.Register(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>());
+
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
