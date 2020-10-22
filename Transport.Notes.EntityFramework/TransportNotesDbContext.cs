@@ -12,11 +12,14 @@ namespace Transport.Notes.EntityFramework
     {
         public DbSet<Account> Accounts { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
         public TransportNotesDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<User>()
+                .HasMany(u => u.Vehicles)
+                .WithOne(v => v.User);              
         }
     }
 }
