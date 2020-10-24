@@ -6,7 +6,7 @@ namespace Transport.Notes.Domain.Models
 {
     public class Vehicle : DomainObject
     {
-        public string carBrand { get; set; }
+        public string CarBrand { get; set; }
         public string VIN { get; set; }
         public string Milage { get; set; }
         public string EnigneNumber { get; set; }
