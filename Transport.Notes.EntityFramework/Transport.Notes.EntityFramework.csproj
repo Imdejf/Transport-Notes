@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20201022154841_AddVehicleToDatabase.cs" />
     <Compile Remove="Migrations\20201022154841_AddVehicleToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20201031143402_FixInAccount.cs" />
+    <Compile Remove="Migrations\20201031143402_FixInAccount.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

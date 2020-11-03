@@ -1,9 +1,16 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
+using Microsoft.EntityFrameworkCore.Metadata;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using Transport.Notes.Domain.Services;
+using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.WPF.Commands.ManageFleetCommands;
-using Transport.Notes.WPF.State.CreateVehicle;
+using Transport.Notes.WPF.State.Accounts;
 
 namespace Transport.Notes.WPF.ViewModel.InventoryViewModel
 {
@@ -11,10 +18,10 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel
     {
         public ICommand CreateVehicleCommand { get; set; }
 
-        public MenageFleetViewModel(ICreateVehicleResult createVehicleResult)
-            {
-            CreateVehicleCommand = new CreateVehicleCommand(this, createVehicleResult);
-            }
+        public MenageFleetViewModel(IMenageFleetService menageFleetService, IAccountStore accountStore)
+        {
+            CreateVehicleCommand = new CreateVehicleCommand(this, menageFleetService, accountStore);
+        }
 
         private string _carbrand { get; set; } //if is problem with added to database look here
         private string _vin { get; set; }
@@ -103,7 +110,9 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel
         {
             get
             {
+                if(_firstRegistration.Year == 1) { return DateTime.Now; }
                 return _firstRegistration;
+
             }
             set
             {
@@ -115,6 +124,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel
         {
             get
             {
+                if(_yearPurchase.Year == 1) { return DateTime.Now; }
                 return _yearPurchase;
             }
             set
@@ -127,6 +137,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel
         {
             get
             {
+                if (_yearProduction.Year == 1) { return DateTime.Now; }
                 return _yearProduction;
             }
             set

@@ -17,9 +17,10 @@ namespace Transport.Notes.EntityFramework
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>()
-                .HasMany(u => u.Vehicles)
-                .WithOne(v => v.User);              
+            modelBuilder.Entity<Vehicle>()
+                .HasOne(a => a.Account)
+                .WithMany(v => v.Vehcile);
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
