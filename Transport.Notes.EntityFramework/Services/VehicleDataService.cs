@@ -53,7 +53,7 @@ namespace Transport.Notes.EntityFramework.Services
             using (TransportNotesDbContext context = _contextFacotry.CreateDbContext())
             {
                 return await context.Vehicles
-                    .FirstOrDefaultAsync();
+                    .FirstOrDefaultAsync(v => v.RegistrationNumber == registrationNumber) ;
             }
         }
 
@@ -62,7 +62,7 @@ namespace Transport.Notes.EntityFramework.Services
             using (TransportNotesDbContext context = _contextFacotry.CreateDbContext())
             {
                 return await context.Vehicles
-                    .FirstOrDefaultAsync();
+                    .FirstOrDefaultAsync(v => v.VIN == vin);
             }
         }
 

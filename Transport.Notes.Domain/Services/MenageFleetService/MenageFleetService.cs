@@ -11,16 +11,24 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
     public class MenageFleetService : IMenageFleetService
     {
         private readonly IDataService<Account> _accountService;
+        private readonly IVehicleService _vehicleService;
 
-        public MenageFleetService(IAccountService accountService)
+        public MenageFleetService(IDataService<Account> accountService, IVehicleService vehicleService)
         {
             _accountService = accountService;
+            _vehicleService = vehicleService;
         }
         public async  Task<Account> AddVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar,Account accountId)
         {
-            if(carBrand == null || vin == null || registerNumber == null)
+            Vehicle vehicleVIN = await _vehicleService.GetByVIN(vin);
+            if(vehicleVIN != null)
             {
-                throw new Exception();
+                throw new InvalidVinNumberException(vin);
+            }
+            Vehicle vehicleRegistraion = await _vehicleService.GetByRegistrationNumber(registerNumber);
+            if(vehicleRegistraion != null)
+            {
+                throw new InvalidRegistrationNumberException(registerNumber);
             }
             Vehicle vehicle = new Vehicle()
             {
