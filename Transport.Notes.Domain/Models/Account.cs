@@ -7,5 +7,6 @@ namespace Transport.Notes.Domain.Models
     public class Account : DomainObject
     {
         public User AccountHolder { get; set; }
+        public ICollection<Vehicle> Vehciles { get; set; }
     }
 }

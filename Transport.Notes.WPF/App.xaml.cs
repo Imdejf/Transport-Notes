@@ -5,6 +5,7 @@ using System.Windows;
 using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services;
 using Transport.Notes.Domain.Services.AuthenticationService;
+using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.EntityFramework;
 using Transport.Notes.EntityFramework.Services;
 using Transport.Notes.WPF.State.Accounts;
@@ -16,7 +17,7 @@ using Transport.Notes.WPF.ViewModel.ControlViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl;
 using Transport.Notes.WPF.ViewModel.Factories;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel;
-using Transport.Notes.WPF.Views;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
 
 namespace Transport.Notes.WPF
 {
@@ -40,6 +41,8 @@ namespace Transport.Notes.WPF
 
             services.AddSingleton<TransportNotesDbContextFacotry>();
             services.AddSingleton<IDataService<Account>, AccountDataService>();
+            services.AddSingleton<IDataService<Vehicle>, VehicleDataService>();
+            services.AddSingleton<IVehicleService, VehicleDataService>();
             services.AddSingleton<IAccountService, AccountDataService>();
             services.AddSingleton<IAccountStore, AccountStore>();
             services.AddSingleton<IPasswordHasher, PasswordHasher>();
@@ -111,6 +114,7 @@ namespace Transport.Notes.WPF
             });
             #endregion
             services.AddSingleton<IAuthenticator, Authenticator>();
+            services.AddSingleton<IMenageFleetService, MenageFleetService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();
             services.AddSingleton<INavigator, Navigator>();

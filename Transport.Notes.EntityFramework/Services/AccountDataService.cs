@@ -74,7 +74,7 @@ namespace Transport.Notes.EntityFramework.Services
 
         public async Task<Account> Update(Account entity, int id)
         {
-            return await _nonQueryService.Update(id, entity);
+            return await _nonQueryService.Update(id,entity);
         }
     }
 }

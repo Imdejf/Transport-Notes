@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Transport.Notes.EntityFramework;
 
 namespace Transport.Notes.EntityFramework.Migrations
 {
     [DbContext(typeof(TransportNotesDbContext))]
-    partial class TransportNotesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201022161646_AddVehicleToDatabase")]
+    partial class AddVehicleToDatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -67,12 +69,6 @@ namespace Transport.Notes.EntityFramework.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("AccountId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CarBrand")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("EngineCapacity")
                         .HasColumnType("nvarchar(max)");
 
@@ -91,6 +87,9 @@ namespace Transport.Notes.EntityFramework.Migrations
                     b.Property<string>("RegistrationNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("VIN")
                         .HasColumnType("nvarchar(max)");
 
@@ -100,9 +99,12 @@ namespace Transport.Notes.EntityFramework.Migrations
                     b.Property<DateTime>("YearPurchase")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("carBrand")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("AccountId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("Vehicles");
                 });
@@ -116,9 +118,9 @@ namespace Transport.Notes.EntityFramework.Migrations
 
             modelBuilder.Entity("Transport.Notes.Domain.Models.Vehicle", b =>
                 {
-                    b.HasOne("Transport.Notes.Domain.Models.Account", "Account")
-                        .WithMany("Vehcile")
-                        .HasForeignKey("AccountId");
+                    b.HasOne("Transport.Notes.Domain.Models.User", "User")
+                        .WithMany("Vehicles")
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }

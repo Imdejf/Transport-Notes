@@ -9,7 +9,7 @@ namespace Transport.Notes.WPF.ViewModel
 {
     public class LoginViewModel : ViewModelBase
     {
-        private string _username = "DawidJablonski";
+        private string _username = "Test";
         public string Username
         {
             get
