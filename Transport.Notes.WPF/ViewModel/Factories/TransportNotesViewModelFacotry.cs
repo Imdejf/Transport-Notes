@@ -1,7 +1,7 @@
 ﻿using System;
 using Transport.Notes.WPF.State.Navigators;
-using Transport.Notes.WPF.ViewModel.ControlViewModel;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
 
 namespace Transport.Notes.WPF.ViewModel.Factories
 {

@@ -5,6 +5,7 @@
              xmlns:viewmodel="clr-namespace:Transport.Notes.WPF.ViewModel"
              xmlns:viewmodelcontrol="clr-namespace:Transport.Notes.WPF.ViewModel.ControlViewModel"
              xmlns:viewmodelInventory="clr-namespace:Transport.Notes.WPF.ViewModel.InventoryViewModel"
+             xmlns:viewmodelMenageFleet="clr-namespace:Transport.Notes.WPF.ViewModel.InventoryViewModel.MengeFleet"
              xmlns:view="clr-namespace:Transport.Notes.WPF.Views"
              xmlns:viewControl ="clr-namespace:Transport.Notes.WPF.Controls.Category"
              xmlns:viewInventory="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
@@ -35,7 +36,7 @@
             <DataTemplate DataType="{x:Type viewmodelInventory:VehicleEquipmentViewModel}">
                 <viewInventory:VehicleEquipmentView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodelInventory:MenageFleetViewModel}">
+            <DataTemplate DataType="{x:Type viewmodelMenageFleet:MenageFleetListingViewModel}">
                 <viewInventory:MenageFleetView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodelInventory:DriversBaseViewModel}">

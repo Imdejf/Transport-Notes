@@ -7,16 +7,11 @@
              xmlns:controls="clr-namespace:Transport.Notes.WPF.Controls.ButtonHelper"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-<<<<<<< HEAD
-    <Grid Background="#627792">
-        <TextBlock Text="OBRAZ TESTOWY(START)" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="50" FontWeight="Bold"/>
-    </Grid>
-=======
-    <Grid Background="#f9f8f4">
 
-        <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+    <Grid Background="#f9f8f4">
+    <Grid Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <controls:StartButton/>
         </Grid>
         </Grid>
->>>>>>> master
+    
 </UserControl>

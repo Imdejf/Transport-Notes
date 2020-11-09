@@ -19,7 +19,7 @@ namespace Transport.Notes.EntityFramework
         {
             modelBuilder.Entity<Vehicle>()
                 .HasOne(a => a.Account)
-                .WithMany(v => v.Vehcile);
+                .WithMany(v => v.Vehciles);
             base.OnModelCreating(modelBuilder);
         }
     }

@@ -3,10 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-<<<<<<< HEAD
-=======
              xmlns:nav="clr-namespace:Transport.Notes.WPF.State.Navigators"
->>>>>>> master
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:Transport.Notes.WPF.Controls.Category"
              mc:Ignorable="d" 
@@ -31,107 +28,97 @@
                     <TextBlock Text="Inventory" FontSize="25" TextAlignment="Left" FontWeight="Bold" Foreground="DarkSlateGray" VerticalAlignment="Center" Margin="0 15 0 0"/>
                 </StackPanel>
                 <Grid Grid.Row="1" Margin="0 10 0 0">
-<<<<<<< HEAD
                     <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
-=======
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+
+                        <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Command="{Binding UpdateCurrentViewModelCommand}"
                             CommandParameter="{x:Static nav:ViewType.MenageFleet }">
->>>>>>> master
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="19"/>
-                        </Button.Effect>
-                        <StackPanel>
-                            <Grid Width="120">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/document.png" Width="30" HorizontalAlignment="Left" />
-                                <TextBlock Grid.Column="1" Text="Manage&#10;fleet" TextAlignment="Center" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
-                            </Grid>
-  
-                        </StackPanel>
-                    </Button>
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="19"/>
+                            </Button.Effect>
+                            <StackPanel>
+                                <Grid Width="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/document.png" Width="30" HorizontalAlignment="Left" />
+                                    <TextBlock Grid.Column="1" Text="Manage&#10;fleet" TextAlignment="Center" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
+                                </Grid>
 
-                    </Grid>
+                            </StackPanel>
+                        </Button>
+                    </Button>
+                </Grid>
                 <Grid Grid.Row="2" Margin="0 10 0 0">
-<<<<<<< HEAD
                     <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
-=======
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Command="{Binding UpdateCurrentViewModelCommand}"
                             CommandParameter="{x:Static nav:ViewType.VehicleEquipment }"
                             >
->>>>>>> master
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="19"/>
-                        </Button.Effect>
-                        <StackPanel>
-                            <Grid Width="120">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/tool-box.png" Width="30" HorizontalAlignment="Left" />
-                                <TextBlock Grid.Column="1" Text="Vehicle&#10;equipment" TextAlignment="Center" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
-                            </Grid>
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="19"/>
+                            </Button.Effect>
+                            <StackPanel>
+                                <Grid Width="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/tool-box.png" Width="30" HorizontalAlignment="Left" />
+                                    <TextBlock Grid.Column="1" Text="Vehicle&#10;equipment" TextAlignment="Center" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
+                                </Grid>
 
-                        </StackPanel>
+                            </StackPanel>
+                        </Button>
                     </Button>
-
                 </Grid>
                 <Grid Grid.Row="3" Margin="0 10 0 0">
-<<<<<<< HEAD
                     <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
-=======
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Command="{Binding UpdateCurrentViewModelCommand}"
                             CommandParameter="{x:Static nav:ViewType.DriversBase}"
                             >
->>>>>>> master
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="19"/>
-                        </Button.Effect>
-                        <StackPanel>
-                            <Grid Width="120">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/bus-driver.png" Width="30" HorizontalAlignment="Left" />
-                                <TextBlock Grid.Column="1" Text="Drivers base" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
-                            </Grid>
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="19"/>
+                            </Button.Effect>
+                            <StackPanel>
+                                <Grid Width="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/bus-driver.png" Width="30" HorizontalAlignment="Left" />
+                                    <TextBlock Grid.Column="1" Text="Drivers base" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
+                                </Grid>
 
-                        </StackPanel>
+                            </StackPanel>
+                        </Button>
                     </Button>
 
                 </Grid>
                 <Grid Grid.Row="4" Margin="0 10 0 0">
-<<<<<<< HEAD
                     <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center">
-=======
-                    <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
+                        <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Command="{Binding UpdateCurrentViewModelCommand}"
                             CommandParameter="{x:Static nav:ViewType.GeneralInformation }"
                             >
->>>>>>> master
-                        <Button.Effect>
-                            <DropShadowEffect BlurRadius="19"/>
-                        </Button.Effect>
-                        <StackPanel>
-                            <Grid Width="120">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="auto"/>
-                                    <ColumnDefinition Width="auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/parking.png" Width="30" HorizontalAlignment="Left" />
-                                <TextBlock Grid.Column="1" Text="General&#10;information" TextAlignment="Center" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
-                            </Grid>
+                            <Button.Effect>
+                                <DropShadowEffect BlurRadius="19"/>
+                            </Button.Effect>
+                            <StackPanel>
+                                <Grid Width="120">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/parking.png" Width="30" HorizontalAlignment="Left" />
+                                    <TextBlock Grid.Column="1" Text="General&#10;information" TextAlignment="Center" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
+                                </Grid>
 
-                        </StackPanel>
+                            </StackPanel>
+                        </Button>
                     </Button>
-
                 </Grid>
             </Grid>
         </Border>

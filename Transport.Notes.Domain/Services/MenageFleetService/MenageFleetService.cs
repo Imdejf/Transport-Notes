@@ -48,10 +48,5 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
 
             return accountId;
         }
-
-        public Task<Account> GetAllVehicle(Account account)
-        {
-
-        }
     }
 }

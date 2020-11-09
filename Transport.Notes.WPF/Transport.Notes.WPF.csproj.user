@@ -13,6 +13,9 @@
     <Compile Update="Controls\Category\InventoryControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\MenageFleetControl\MenageFleetListing.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\WidgetControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -43,6 +46,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Category\InventoryControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\MenageFleetControl\MenageFleetListing.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\WidgetControl.xaml">
