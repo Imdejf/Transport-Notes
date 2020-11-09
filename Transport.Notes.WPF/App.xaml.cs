@@ -17,7 +17,7 @@ using Transport.Notes.WPF.ViewModel.ControlViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl;
 using Transport.Notes.WPF.ViewModel.Factories;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel;
-using Transport.Notes.WPF.Views;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
 
 namespace Transport.Notes.WPF
 {

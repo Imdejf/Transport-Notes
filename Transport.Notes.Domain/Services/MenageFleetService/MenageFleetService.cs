@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Transport.Notes.Domain.Exceptions;
 using Transport.Notes.Domain.Models;
@@ -44,11 +42,16 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
                 ImageCar = imageCar,
                 Account = accountId
             };
-            accountId.Vehcile = new List<Vehicle>();
-            accountId.Vehcile.Add(vehicle);
+            accountId.Vehciles = new List<Vehicle>();
+            accountId.Vehciles.Add(vehicle);
             await _accountService.Update(accountId, accountId.Id);
 
             return accountId;
+        }
+
+        public Task<Account> GetAllVehicle(Account account)
+        {
+
         }
     }
 }

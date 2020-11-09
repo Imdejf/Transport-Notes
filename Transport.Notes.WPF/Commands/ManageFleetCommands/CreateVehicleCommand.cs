@@ -8,7 +8,7 @@ using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.WPF.State.Accounts;
-using Transport.Notes.WPF.ViewModel.InventoryViewModel;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
 
 namespace Transport.Notes.WPF.Commands.ManageFleetCommands
 {
@@ -24,7 +24,6 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
             _menageFleetService = menageFleetService;
             _accountStore = accountStore;
         }
-
         public override async Task ExecuteAsync(object parameter)
         {
             try

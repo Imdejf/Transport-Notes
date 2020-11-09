@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Transport.Notes.Domain.Exceptions;
@@ -35,7 +36,6 @@ namespace Transport.Notes.Tests.Services
                  () => _menageFleetService.AddVehicle(It.IsAny<string>(),vin, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(),It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(),It.IsAny<byte []>(),It.IsAny<Account>())
            );
             string actualInvalidVin = exception.VIN;
-            // InvalidVinNumberException invalidVin = await _menageFleetService.AddVehicle(It.IsAny<string>(), vin, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<DIt.IsAny<byte[]>(), It.IsAny<Account>());
 
             Assert.AreEqual(vin, actualInvalidVin);
         }
@@ -52,5 +52,22 @@ namespace Transport.Notes.Tests.Services
 
             Assert.AreEqual(registrationNumber, actualRegistrationNumber);
         }
+        [Test]
+        public async Task AddedVehicleSucces_ReturnSucces()
+        {
+            int expectedAddedVehicle = 1;
+            Account vehicleCount = CreateAccount();
+            vehicleCount = await _menageFleetService.AddVehicle(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<byte[]>(), vehicleCount);
+            int actualAddedVehicle = vehicleCount.Vehcile.Count();
+            Assert.AreEqual(expectedAddedVehicle, actualAddedVehicle);
+        }
+        private Account CreateAccount()
+        {
+            return new Account()
+            {
+                Vehcile = new List<Vehicle>()
+            };
+        }
     }
+
 }

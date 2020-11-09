@@ -1,18 +1,10 @@
-﻿using Microsoft.EntityFrameworkCore.ChangeTracking.Internal;
-using Microsoft.EntityFrameworkCore.Metadata;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System;
 using System.Windows.Input;
-using System.Windows.Media;
-using Transport.Notes.Domain.Services;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.WPF.Commands.ManageFleetCommands;
 using Transport.Notes.WPF.State.Accounts;
 
-namespace Transport.Notes.WPF.ViewModel.InventoryViewModel
+namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
 {
     public class MenageFleetViewModel : ViewModelBase
     {
