@@ -13,7 +13,7 @@
     <Compile Update="Controls\Category\InventoryControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Controls\MenageFleetControl\MenageFleetListing.xaml.cs">
+    <Compile Update="Controls\ManageFleetControl\ManageFleetListing.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Controls\WidgetControl.xaml.cs">
@@ -28,7 +28,7 @@
     <Compile Update="Views\InventoryViews\GeneralInformationView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\InventoryViews\MenageFleetView.xaml.cs">
+    <Compile Update="Views\InventoryViews\ManageFleetView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\InventoryViews\VehicleEquipmentView.xaml.cs">
@@ -48,7 +48,7 @@
     <Page Update="Controls\Category\InventoryControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Controls\MenageFleetControl\MenageFleetListing.xaml">
+    <Page Update="Controls\ManageFleetControl\ManageFleetListing.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\WidgetControl.xaml">
@@ -69,7 +69,7 @@
     <Page Update="Views\InventoryViews\GeneralInformationView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\InventoryViews\MenageFleetView.xaml">
+    <Page Update="Views\InventoryViews\ManageFleetView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\InventoryViews\VehicleEquipmentView.xaml">

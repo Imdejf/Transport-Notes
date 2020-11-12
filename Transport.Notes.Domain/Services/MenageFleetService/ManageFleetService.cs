@@ -6,12 +6,12 @@ using Transport.Notes.Domain.Models;
 
 namespace Transport.Notes.Domain.Services.MenageFleetService
 {
-    public class MenageFleetService : IMenageFleetService
+    public class ManageFleetService : IManageFleetService
     {
         private readonly IDataService<Account> _accountService;
         private readonly IVehicleService _vehicleService;
 
-        public MenageFleetService(IDataService<Account> accountService, IVehicleService vehicleService)
+        public ManageFleetService(IDataService<Account> accountService, IVehicleService vehicleService)
         {
             _accountService = accountService;
             _vehicleService = vehicleService;

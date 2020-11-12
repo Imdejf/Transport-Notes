@@ -16,14 +16,14 @@ namespace Transport.Notes.Tests.Services
     {
         private Mock<IVehicleService> _mockVehicleService;
         private Mock<IDataService<Account>> _mockAccountService;
-        private MenageFleetService _menageFleetService;
+        private ManageFleetService _menageFleetService;
 
         [SetUp]
         public void SetUp()
         {
             _mockVehicleService = new Mock<IVehicleService>();
             _mockAccountService = new Mock<IDataService<Account>>();
-            _menageFleetService = new MenageFleetService(_mockAccountService.Object,_mockVehicleService.Object);
+            _menageFleetService = new ManageFleetService(_mockAccountService.Object,_mockVehicleService.Object);
         }
         
         [Test]

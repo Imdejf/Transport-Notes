@@ -14,11 +14,11 @@ using System.Windows.Shapes;
 namespace Transport.Notes.WPF.Controls.MenageFleetControl
 {
     /// <summary>
-    /// Logika interakcji dla klasy MenageFleetListing.xaml
+    /// Logika interakcji dla klasy ManageFleetListing.xaml
     /// </summary>
-    public partial class MenageFleetListing : UserControl
+    public partial class ManageFleetListing : UserControl
     {
-        public MenageFleetListing()
+        public ManageFleetListing()
         {
             InitializeComponent();
         }

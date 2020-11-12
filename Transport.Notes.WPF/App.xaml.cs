@@ -12,6 +12,7 @@ using Transport.Notes.WPF.State.Accounts;
 using Transport.Notes.WPF.State.Authenticators;
 using Transport.Notes.WPF.State.NavigatorControls;
 using Transport.Notes.WPF.State.Navigators;
+using Transport.Notes.WPF.State.Vehicles;
 using Transport.Notes.WPF.ViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl;
@@ -94,10 +95,10 @@ namespace Transport.Notes.WPF
                 return () => services.GetRequiredService<VehicleEquipmentViewModel>();
             });
  
-            services.AddSingleton<MenageFleetViewModel>();
-            services.AddSingleton<CreateViewModel<MenageFleetViewModel>>(services =>
+            services.AddSingleton<ManageFleetViewModel>();
+            services.AddSingleton<CreateViewModel<ManageFleetViewModel>>(services =>
             {
-                return () => services.GetRequiredService<MenageFleetViewModel>();
+                return () => services.GetRequiredService<ManageFleetViewModel>();
             });
 
 
@@ -114,9 +115,10 @@ namespace Transport.Notes.WPF
             });
             #endregion
             services.AddSingleton<IAuthenticator, Authenticator>();
-            services.AddSingleton<IMenageFleetService, MenageFleetService>();
+            services.AddSingleton<IManageFleetService, ManageFleetService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();
+            services.AddSingleton<VehicleState>();
             services.AddSingleton<INavigator, Navigator>();
 
             services.AddScoped<MainViewModel>();

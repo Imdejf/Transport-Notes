@@ -5,10 +5,11 @@
              xmlns:viewmodel="clr-namespace:Transport.Notes.WPF.ViewModel"
              xmlns:viewmodelcontrol="clr-namespace:Transport.Notes.WPF.ViewModel.ControlViewModel"
              xmlns:viewmodelInventory="clr-namespace:Transport.Notes.WPF.ViewModel.InventoryViewModel"
-             xmlns:viewmodelMenageFleet="clr-namespace:Transport.Notes.WPF.ViewModel.InventoryViewModel.MengeFleet"
+             xmlns:viewmodelMenageFleet="clr-namespace:Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet"
              xmlns:view="clr-namespace:Transport.Notes.WPF.Views"
              xmlns:viewControl ="clr-namespace:Transport.Notes.WPF.Controls.Category"
              xmlns:viewInventory="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
+             xmlns:ManageFleetControl="clr-namespace:Transport.Notes.WPF.Controls.MenageFleetControl"
              >
     <Application.Resources>
         <ResourceDictionary>
@@ -36,8 +37,8 @@
             <DataTemplate DataType="{x:Type viewmodelInventory:VehicleEquipmentViewModel}">
                 <viewInventory:VehicleEquipmentView/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodelMenageFleet:MenageFleetListingViewModel}">
-                <viewInventory:MenageFleetView/>
+            <DataTemplate DataType="{x:Type viewmodelMenageFleet:ManageFleetViewModel}">
+                <viewInventory:ManageFleetView/>
             </DataTemplate>
             <DataTemplate DataType="{x:Type viewmodelInventory:DriversBaseViewModel}">
                 <viewInventory:DriversBase/>
@@ -45,6 +46,9 @@
             <DataTemplate DataType="{x:Type viewmodelInventory:GeneralInformationViewModel}">
                 <viewInventory:GeneralInformation/>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ManageFleetControl:ManageFleetListing}">
+                <ManageFleetControl:ManageFleetListing/>
+            </DataTemplate> 
         </ResourceDictionary>
     </Application.Resources>
 </Application>

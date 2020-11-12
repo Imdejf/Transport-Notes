@@ -10,7 +10,7 @@ namespace Transport.Notes.WPF.State.Navigators
         Login,
         Start,
         DriversBase,
-        MenageFleet,
+        ManageFleet,
         VehicleEquipment,
         GeneralInformation
     }

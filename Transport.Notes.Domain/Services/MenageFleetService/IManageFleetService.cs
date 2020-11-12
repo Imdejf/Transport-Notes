@@ -14,7 +14,7 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
      VINNumberAlreadyExists,
      RegistrationNumberAlreadyExists
     }
-    public interface IMenageFleetService
+    public interface IManageFleetService
     {
         Task<Account> AddVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber,
                                 DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction,byte [] imageCar,Account accountId);

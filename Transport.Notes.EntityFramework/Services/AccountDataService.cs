@@ -58,6 +58,7 @@ namespace Transport.Notes.EntityFramework.Services
             {
                 return await context.Accounts
                     .Include(a => a.AccountHolder)
+                    .Include(a => a.Vehciles)
                     .FirstOrDefaultAsync(a => a.AccountHolder.Email == email);
             }
         }
@@ -68,6 +69,7 @@ namespace Transport.Notes.EntityFramework.Services
             {
                 return await context.Accounts
                     .Include(a => a.AccountHolder)
+                    .Include(a => a.Vehciles)
                     .FirstOrDefaultAsync(a => a.AccountHolder.Username == username);
             }
         }

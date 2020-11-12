@@ -32,7 +32,7 @@
 
                         <Button Width="140" Height="90" Style="{DynamicResource TabButton}" HorizontalAlignment="Center" VerticalAlignment="Center"
                             Command="{Binding UpdateCurrentViewModelCommand}"
-                            CommandParameter="{x:Static nav:ViewType.MenageFleet }">
+                            CommandParameter="{x:Static nav:ViewType.ManageFleet }">
                             <Button.Effect>
                                 <DropShadowEffect BlurRadius="19"/>
                             </Button.Effect>

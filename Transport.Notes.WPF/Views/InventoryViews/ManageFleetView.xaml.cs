@@ -15,9 +15,9 @@ namespace Transport.Notes.WPF.Views.InventoryViews
     /// <summary>
     /// Logika interakcji dla klasy MenageFleetView.xaml
     /// </summary>
-    public partial class MenageFleetView : UserControl
+    public partial class ManageFleetView : UserControl
     {
-        public MenageFleetView()
+        public ManageFleetView()
         {
             InitializeComponent();
         }

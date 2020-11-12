@@ -14,11 +14,11 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
 {
     public class CreateVehicleCommand : AsyncCommandBase
     {
-        private readonly MenageFleetViewModel _menageFleetViewModel;
-        private readonly IMenageFleetService _menageFleetService;
+        private readonly ManageFleetViewModel _menageFleetViewModel;
+        private readonly IManageFleetService _menageFleetService;
         private readonly IAccountStore _accountStore;
 
-        public CreateVehicleCommand(MenageFleetViewModel menageFleetViewModel, IMenageFleetService menageFleetService, IAccountStore accountStore)
+        public CreateVehicleCommand(ManageFleetViewModel menageFleetViewModel, IManageFleetService menageFleetService, IAccountStore accountStore)
         {
             _menageFleetViewModel = menageFleetViewModel;
             _menageFleetService = menageFleetService;
