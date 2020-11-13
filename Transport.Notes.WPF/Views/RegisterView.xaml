@@ -78,6 +78,12 @@
                         Background="Transparent"
                         Content="Back to login window..."
                         HorizontalAlignment="Center"/>
+                    <TextBlock FontSize="20"
+                               Margin="0 15 0 0"
+                               DataContext="{Binding ErrorMessageViewModel}"
+                               Foreground="DarkRed"
+                               Text="{Binding Message}"
+                               Visibility="{Binding HasMessage, Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

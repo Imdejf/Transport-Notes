@@ -1,5 +1,6 @@
 ﻿
 
+using System.Windows.Controls;
 using System.Windows.Input;
 using Transport.Notes.WPF.Commands;
 using Transport.Notes.WPF.State.Authenticators;
@@ -40,8 +41,17 @@ namespace Transport.Notes.WPF.ViewModel
 
         public ICommand LoginCommand { get; set; }
 
+        public MessageViewModel ErrorMessageViewModel { get; }
+
+        public string ErrorMessage
+        {
+            set => ErrorMessageViewModel.Message = value;
+        }
+
         public LoginViewModel(IAuthenticator authenticator, IRenavigator loginRenavigator, IRenavigator registerRenavigator)
         {
+            ErrorMessageViewModel = new MessageViewModel();
+
             LoginCommand = new LoginCommand(this, authenticator, loginRenavigator);
             ViewRegisterCommand = new RenavigateCommand(registerRenavigator);
         }

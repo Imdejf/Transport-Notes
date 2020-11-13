@@ -27,6 +27,8 @@ namespace Transport.Notes.WPF.Commands
         {
             try
             {
+                _registerViewModel.ErrorMessage = string.Empty;
+
                 RegisterResult registerResult = await _authenticator.Register(
                     _registerViewModel.Username,
                     _registerViewModel.Email,
@@ -36,25 +38,24 @@ namespace Transport.Notes.WPF.Commands
                 {
                     case RegisterResult.Succes:
                         _registerRenavigator.Renavigator();
-                        MessageBox.Show("Succes");
                         break;
                     case RegisterResult.UsernameAlreadyExists:
-                        MessageBox.Show("Username");
+                        _registerViewModel.ErrorMessage = "An account for this username already exist";
                         break;
                     case RegisterResult.EmailAlreadyExists:
-                        MessageBox.Show("Email");
+                        _registerViewModel.ErrorMessage = "An account for this email already exist";
                         break;
                     case RegisterResult.PasswordDoNotMatch:
-                        MessageBox.Show("Password");
+                        _registerViewModel.ErrorMessage = "Password do not match confirm password";
                         break;
                     default:
-                        MessageBox.Show("Inne");
+                        _registerViewModel.ErrorMessage = "Registration failed";
                         break;
                 }
             }
             catch(Exception ex)
             {
-                MessageBox.Show($"{ex}");
+                _registerViewModel.ErrorMessage = "Registration failed";
             }
         }
     }

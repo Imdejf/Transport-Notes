@@ -29,6 +29,7 @@ namespace Transport.Notes.WPF.Commands
 
         public override async Task ExecuteAsync(object parameter)
         {
+            _loginViewModel.ErrorMessage = string.Empty;
             try
             {
                 await _authenticator.Login(_loginViewModel.Username, _loginViewModel.Password);
@@ -37,15 +38,15 @@ namespace Transport.Notes.WPF.Commands
             }
             catch(UserNotFoundException)
             {
-                MessageBox.Show("Username");
+                _loginViewModel.ErrorMessage = "Username does not exist";
             }
             catch(InvalidPasswordException)
             {
-                MessageBox.Show("Password");
+                _loginViewModel.ErrorMessage = "Incorrect password";
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                MessageBox.Show($"{ex}");
+                _loginViewModel.ErrorMessage = "Login filed";
             }
         }
     }

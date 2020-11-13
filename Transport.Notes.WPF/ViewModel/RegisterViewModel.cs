@@ -68,8 +68,17 @@ namespace Transport.Notes.WPF.ViewModel
         public ICommand RegisterCommand { get; set; }
         public ICommand LoginViewCommand { get; set; }
 
+        public MessageViewModel ErrorMessageViewModel { get; }
+
+        public string ErrorMessage
+        {
+            set => ErrorMessageViewModel.Message = value;
+        }
+
         public RegisterViewModel(IAuthenticator authenticator, IRenavigator registerRenavigator, IRenavigator loginRenavigator)
         {
+            ErrorMessageViewModel = new MessageViewModel();
+
             RegisterCommand = new RegisterCommand(this, authenticator, registerRenavigator);
             LoginViewCommand = new RenavigateCommand(loginRenavigator);
         }
