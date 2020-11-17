@@ -6,6 +6,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
 {
     public class DisplayManageFleetViewModel : ViewModelBase
     {
+        public int Id { get; }
         public string CarBrand { get; }
         public string VIN { get; }
         public string Milage { get; }
@@ -16,9 +17,10 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         public DateTime YearPurchase { get; }
         public DateTime YearProduction { get; }
         public byte[] ImageCar { get; }
-        public DisplayManageFleetViewModel(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registrationNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar)
+        public DisplayManageFleetViewModel(int id,string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registrationNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar)
         {
-            CarBrand = "tak";
+            Id = id;
+            CarBrand = carBrand;
             VIN = vin;
             Milage = milage;
             EngineNumber = engineNumber;

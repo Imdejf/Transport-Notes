@@ -48,5 +48,12 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
 
             return accountId;
         }
+
+        public async Task<bool> DeleteVehicle(int id)
+        {
+            await _vehicleService.Delete(id);
+            return true;
+
+        }
     }
 }

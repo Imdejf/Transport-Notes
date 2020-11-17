@@ -3,7 +3,10 @@ using System.Configuration;
 using System.Linq;
 using System.Windows.Input;
 using Transport.Notes.Domain.Services.MenageFleetService;
+using Transport.Notes.EntityFramework.Services;
+using Transport.Notes.WPF.Commands;
 using Transport.Notes.WPF.Commands.ManageFleetCommands;
+using Transport.Notes.WPF.Controls;
 using Transport.Notes.WPF.State.Accounts;
 using Transport.Notes.WPF.State.Vehicles;
 
@@ -14,10 +17,11 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         public ICommand CreateVehicleCommand { get; set; }
         public ManageFleetListingViewModel ManageFleetListingViewModel { get; }
 
-        public ManageFleetViewModel(IManageFleetService menageFleetService, IAccountStore accountStore,VehicleState vehicleState)
+        public ManageFleetViewModel(IManageFleetService menageFleetService, IAccountStore accountStore,VehicleState vehicleState,IManageFleetService manageFleetService)
         {
             CreateVehicleCommand = new CreateVehicleCommand(this, menageFleetService, accountStore);
-            ManageFleetListingViewModel = new ManageFleetListingViewModel(vehicleState);
+            CreateVehicleCommand = new CreateVehicleCommand(this, menageFleetService, accountStore);
+            ManageFleetListingViewModel = new ManageFleetListingViewModel(vehicleState, manageFleetService);
         }
 
         private string _carbrand { get; set; } //if is problem with added to database look here

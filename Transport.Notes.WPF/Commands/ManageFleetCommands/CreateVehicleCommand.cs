@@ -14,32 +14,32 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
 {
     public class CreateVehicleCommand : AsyncCommandBase
     {
-        private readonly ManageFleetViewModel _menageFleetViewModel;
-        private readonly IManageFleetService _menageFleetService;
+        private readonly ManageFleetViewModel _manageFleetViewModel;
+        private readonly IManageFleetService _manageFleetService;
         private readonly IAccountStore _accountStore;
 
-        public CreateVehicleCommand(ManageFleetViewModel menageFleetViewModel, IManageFleetService menageFleetService, IAccountStore accountStore)
+        public CreateVehicleCommand(ManageFleetViewModel menageFleetViewModel, IManageFleetService manageFleetService, IAccountStore accountStore)
         {
-            _menageFleetViewModel = menageFleetViewModel;
-            _menageFleetService = menageFleetService;
+            _manageFleetViewModel = menageFleetViewModel;
+            _manageFleetService = manageFleetService;
             _accountStore = accountStore;
         }
         public override async Task ExecuteAsync(object parameter)
         {
             try
             {
-                string carBrand = _menageFleetViewModel.CarBrand;
-                string vin = _menageFleetViewModel.VIN;
-                string milage = _menageFleetViewModel.Milage;
-                string engineCapacity = _menageFleetViewModel.EngineCapacity;
-                string registerNumber = _menageFleetViewModel.RegistrationNumber;
-                DateTime firstRegistration = _menageFleetViewModel.FirstRegistration;
-                DateTime yearPurchase = _menageFleetViewModel.YearPurchase;
-                DateTime yearProduction = _menageFleetViewModel.YearProduction;
-                byte[] imageCar = _menageFleetViewModel.ImageCar;
+                string carBrand = _manageFleetViewModel.CarBrand;
+                string vin = _manageFleetViewModel.VIN;
+                string milage = _manageFleetViewModel.Milage;
+                string engineCapacity = _manageFleetViewModel.EngineCapacity;
+                string registerNumber = _manageFleetViewModel.RegistrationNumber;
+                DateTime firstRegistration = _manageFleetViewModel.FirstRegistration;
+                DateTime yearPurchase = _manageFleetViewModel.YearPurchase;
+                DateTime yearProduction = _manageFleetViewModel.YearProduction;
+                byte[] imageCar = _manageFleetViewModel.ImageCar;
 
 
-               Account account = await _menageFleetService.AddVehicle(carBrand, vin, milage, engineCapacity, engineCapacity, registerNumber, firstRegistration, yearPurchase, yearProduction, imageCar, _accountStore.CurrentAccount);
+               Account account = await _manageFleetService.AddVehicle(carBrand, vin, milage, engineCapacity, engineCapacity, registerNumber, firstRegistration, yearPurchase, yearProduction, imageCar, _accountStore.CurrentAccount);
             }
             catch(Exception ex)
             {

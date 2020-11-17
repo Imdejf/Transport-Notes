@@ -22,6 +22,7 @@ namespace Transport.Notes.WPF.ViewModel
         public ViewModelBase CurrentControlViewModel => _navigatorControl.CurrentControlViewModel;
 
         public ICommand UpdateCurrentViewModelCommand { get; }
+        public ICommand DeleteVehicleCommand { get; set; }
         public ICommand UpdateCurrentControlViewModelCommand { get; }
 
         public MainViewModel(INavigator navigator,INavigatorControl navigatorControl,ITransportNotesViewModelFacotry viewModelFacotry, ITransportNotesViewModelControlFacotry viewModelFacotryControl, IAuthenticator authenticator)

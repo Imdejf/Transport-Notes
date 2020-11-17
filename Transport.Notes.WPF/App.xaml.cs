@@ -98,7 +98,7 @@ namespace Transport.Notes.WPF
             services.AddSingleton<ManageFleetViewModel>();
             services.AddSingleton<CreateViewModel<ManageFleetViewModel>>(services =>
             {
-                return () => services.GetRequiredService<ManageFleetViewModel>();
+                return () => services.GetRequiredService<ManageFleetViewModel>();                
             });
 
 
