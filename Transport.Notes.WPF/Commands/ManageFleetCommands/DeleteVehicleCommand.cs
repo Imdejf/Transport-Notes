@@ -33,6 +33,10 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
                 if(tasks == (int)parameter)
                 {
                   bool result = await _manageFleetService.DeleteVehicle(tasks);
+                    if (result == true)
+                    {
+                        _manageFleetListingViewModel.DeleteItem((int)parameter);
+                    }
                 }
             }
         }

@@ -1,28 +1,19 @@
-﻿using Microsoft.EntityFrameworkCore.Internal;
-using Newtonsoft.Json.Bson;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Windows;
 using System.Windows.Input;
 using Transport.Notes.Domain.Services.MenageFleetService;
-using Transport.Notes.EntityFramework.Services;
-using Transport.Notes.WPF.Commands;
 using Transport.Notes.WPF.Commands.ManageFleetCommands;
-using Transport.Notes.WPF.Controls;
 using Transport.Notes.WPF.State.Vehicles;
-using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
 
 namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
 {
     public class ManageFleetListingViewModel : ViewModelBase
     {
-        private readonly Func<IEnumerable<DisplayManageFleetViewModel>,IEnumerable<DisplayManageFleetViewModel>> _filtersVehicle;
-        private readonly ObservableCollection<DisplayManageFleetViewModel> _manageFleetViewModel;
+        private readonly Func<IEnumerable<DisplayManageFleetViewModel>, IEnumerable<DisplayManageFleetViewModel>> _filtersVehicle;
+        private ObservableCollection<DisplayManageFleetViewModel> _manageFleetViewModel;
         private readonly VehicleState _vehicleState;
         private readonly IManageFleetService _manageFleetService;
 
@@ -30,6 +21,11 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
 
         public ICommand DeleteVehicleCommand { get; set; }
 
+        public void RefreshCollection(int id)
+        {
+            var item = Vehicles.FirstOrDefault(x => x.Id == id);
+            _manageFleetViewModel.Remove(item);
+        }
 
         public ManageFleetListingViewModel(VehicleState vehicleState, IManageFleetService manageFleetService) : this(vehicleState,manageFleetService, manageFleet => manageFleet) { }
 
@@ -40,9 +36,9 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
             _vehicleState = vehicleState;
             _manageFleetService = manageFleetService;
             _manageFleetViewModel = new ObservableCollection<DisplayManageFleetViewModel>();
-
             _vehicleState.StateChanged += VehicleState_StateChanged;
             DisplayVehicles();
+            OnPropertyChanged(nameof(_manageFleetService));
         }
         
         private void DisplayVehicles()
@@ -58,7 +54,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
                 _manageFleetViewModel.Add(viewModel);
             }
         }
-       
+
 
         private void VehicleState_StateChanged()
         {
