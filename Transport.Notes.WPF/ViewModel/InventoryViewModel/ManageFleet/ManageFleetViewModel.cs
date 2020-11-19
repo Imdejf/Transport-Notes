@@ -20,11 +20,10 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         public ManageFleetViewModel(IManageFleetService menageFleetService, IAccountStore accountStore,VehicleState vehicleState,IManageFleetService manageFleetService)
         {
             CreateVehicleCommand = new CreateVehicleCommand(this, menageFleetService, accountStore);
-            CreateVehicleCommand = new CreateVehicleCommand(this, menageFleetService, accountStore);
-            ManageFleetListingViewModel = new ManageFleetListingViewModel(vehicleState, manageFleetService);
+            ManageFleetListingViewModel = new ManageFleetListingViewModel(vehicleState,manageFleetService);
         }
 
-        private string _carbrand { get; set; } //if is problem with added to database look here
+        private string _carbrand { get; set; } 
         private string _vin { get; set; }
         private string _milage { get; set; }
         private string _enigneNumber { get; set; }

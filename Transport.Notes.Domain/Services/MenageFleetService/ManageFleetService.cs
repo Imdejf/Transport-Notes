@@ -45,15 +45,13 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
             accountId.Vehciles = new List<Vehicle>();
             accountId.Vehciles.Add(vehicle);
             await _accountService.Update(accountId, accountId.Id);
-
             return accountId;
         }
 
         public async Task<bool> DeleteVehicle(int id)
         {
-            await _vehicleService.Delete(id);
-            return true;
-
+           bool result = await _vehicleService.Delete(id);
+            return result;
         }
     }
 }

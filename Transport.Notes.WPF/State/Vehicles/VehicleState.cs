@@ -18,8 +18,6 @@ namespace Transport.Notes.WPF.State.Vehicles
             _accountStore.StateChanged += OnStateChanged;
         }
 
-
-
         private void OnStateChanged()
         {
             StateChanged?.Invoke();

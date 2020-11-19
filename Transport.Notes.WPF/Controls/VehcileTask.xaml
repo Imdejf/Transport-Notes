@@ -11,6 +11,7 @@
             
         </Border>
         <StackPanel Orientation="Horizontal">
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
@@ -32,7 +33,7 @@
                 <TextBlock Text="{Binding YearProduction, StringFormat='dd/MM/yyyy'}" FontSize="12" FontWeight="DemiBold"/>
             </StackPanel>
             <Button Content="Edit" Command="{Binding Path=DataContext.DeleteVehicleommand, RelativeSource={RelativeSource AncestorType=local:ManageFleetListing}}"/>
-            <Button Background="Red" BorderThickness="0" Content="Delete" Command="{Binding Path=DataContext.DeleteVehicleCommand, RelativeSource={RelativeSource AncestorType=local:ManageFleetListing}}" Margin="10 0 0 0" CommandParameter="{Binding Id}"/>
+            <Button Background="Red" BorderThickness="0" Content="Delete" Command="{Binding Path=DataContext.DeleteVehicleCommand,RelativeSource={RelativeSource AncestorType=local:ManageFleetListing}}" Margin="10 0 0 0" CommandParameter="{Binding Id}"/>
         </StackPanel>
         
         <Border BorderThickness="1" Background="Black"></Border>

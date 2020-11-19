@@ -118,6 +118,7 @@ namespace Transport.Notes.WPF
             services.AddSingleton<IManageFleetService, ManageFleetService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();
+            services.AddSingleton<ManageFleetListingViewModel>();
             services.AddSingleton<VehicleState>();
             services.AddSingleton<INavigator, Navigator>();
 
