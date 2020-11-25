@@ -13,7 +13,7 @@
             <ItemsControl ItemsSource="{Binding Vehicles}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Task:VehcileTask Content="{Binding Vehcile}"/>
+                        <Task:VehcileTask/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

@@ -58,14 +58,14 @@ namespace Transport.Notes.Tests.Services
             int expectedAddedVehicle = 1;
             Account vehicleCount = CreateAccount();
             vehicleCount = await _menageFleetService.AddVehicle(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<byte[]>(), vehicleCount);
-            int actualAddedVehicle = vehicleCount.Vehcile.Count();
+            int actualAddedVehicle = vehicleCount.Vehciles.Count();
             Assert.AreEqual(expectedAddedVehicle, actualAddedVehicle);
         }
         private Account CreateAccount()
         {
             return new Account()
             {
-                Vehcile = new List<Vehicle>()
+                Vehciles = new List<Vehicle>()
             };
         }
     }

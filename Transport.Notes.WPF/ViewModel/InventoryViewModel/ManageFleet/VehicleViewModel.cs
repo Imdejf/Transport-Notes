@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.Controls;
 
-namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
+namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet
 {
-    public class DisplayManageFleetViewModel : ViewModelBase
+    public class VehicleViewModel
     {
         public int Id { get; set; }
         public string CarBrand { get; set; }
@@ -17,7 +18,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         public DateTime YearPurchase { get; set; }
         public DateTime YearProduction { get; set; }
         public byte[] ImageCar { get; set; }
-        public DisplayManageFleetViewModel(int id,string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registrationNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar)
+        public VehicleViewModel(int id, string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registrationNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar)
         {
             Id = id;
             CarBrand = carBrand;
@@ -29,8 +30,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
             FirstRegistration = firstRegistration;
             YearPurchase = yearPurchase;
             YearProduction = yearProduction;
-            ImageCar = imageCar;  
-
+            ImageCar = imageCar;
         }
     }
 }

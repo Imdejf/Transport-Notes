@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Transport.Notes.Domain.Exceptions;
 using Transport.Notes.Domain.Models;
@@ -33,7 +37,7 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
                 CarBrand = carBrand,
                 VIN = vin,
                 Milage = milage,
-                EnigneNumber = engineNumber,
+                EngineNumber = engineNumber,
                 EngineCapacity = engineCapacity,
                 RegistrationNumber = registerNumber,
                 FirstRegistration = firstRegistration,
@@ -48,10 +52,33 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
             return accountId;
         }
 
-        public async Task<bool> DeleteVehicle(int id)
+        public async Task<bool> DeleteVehicle(int id,Account accountId)
         {
-           bool result = await _vehicleService.Delete(id);
+            Account account = accountId as Account;
+            bool result = await _vehicleService.Delete(id);
+            var task = account.Vehciles.FirstOrDefault(s => s.Id == id);
+            account.Vehciles.Remove(task);
             return result;
+        }
+
+        public async Task<Account> EditVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar, Account accountId,int idVehicle)
+        {
+            Vehicle vehicle = new Vehicle()
+            {
+                CarBrand = carBrand,
+                VIN = vin,
+                Milage = milage,
+                EngineNumber = engineNumber,
+                EngineCapacity = engineCapacity,
+                RegistrationNumber = registerNumber,
+                FirstRegistration = firstRegistration,
+                YearPurchase = yearPurchase,
+                YearProduction = yearProduction,
+                ImageCar = imageCar,
+                Account = accountId
+            };
+            await _accountService.Update(accountId, idVehicle);
+            return accountId;
         }
     }
 }

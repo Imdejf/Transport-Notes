@@ -69,6 +69,9 @@
     <Page Update="Style\NavigationBar.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Style\RadioButtonSelect.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\InventoryViews\DriversBaseView.xaml">
       <SubType>Designer</SubType>
     </Page>

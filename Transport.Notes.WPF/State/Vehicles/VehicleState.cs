@@ -9,8 +9,9 @@ namespace Transport.Notes.WPF.State.Vehicles
     {
         private readonly IAccountStore _accountStore;
 
-        public event Action StateChanged;
         public IEnumerable<Vehicle> GetVehicles => _accountStore.CurrentAccount?.Vehciles ?? new List<Vehicle>();
+       
+        public event Action StateChanged;
 
         public VehicleState(IAccountStore accountStore)
         {

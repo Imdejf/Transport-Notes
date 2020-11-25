@@ -9,7 +9,7 @@ namespace Transport.Notes.Domain.Models
         public string CarBrand { get; set; }
         public string VIN { get; set; }
         public string Milage { get; set; }
-        public string EnigneNumber { get; set; }
+        public string EngineNumber { get; set; }
         public string EngineCapacity { get; set; }
         public string RegistrationNumber { get; set; }
         public DateTime FirstRegistration { get;set; }

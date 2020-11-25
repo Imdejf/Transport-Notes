@@ -2,8 +2,10 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:converters ="clr-namespace:Transport.Notes.WPF.Converters"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Transport.Notes.WPF.Controls.MenageFleetControl"
+             xmlns:local2="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
@@ -19,6 +21,9 @@
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="RadioButton" BasedOn="{StaticResource NavButton}"/>
+                </Grid.Resources>
             </Grid>
             <StackPanel Grid.Column="0" MinWidth="150" MaxWidth="300">
                 <TextBlock Text="{Binding CarBrand}" FontSize="12" FontWeight="DemiBold"/>
@@ -32,8 +37,8 @@
             <StackPanel Grid.Column="3"  MinWidth="100" MaxWidth="200" Margin="0 0 20 0">
                 <TextBlock Text="{Binding YearProduction, StringFormat='dd/MM/yyyy'}" FontSize="12" FontWeight="DemiBold"/>
             </StackPanel>
-            <Button Content="Edit" Command="{Binding Path=DataContext.DeleteVehicleommand, RelativeSource={RelativeSource AncestorType=local:ManageFleetListing}}"/>
-            <Button Background="Red" BorderThickness="0" Content="Delete" Command="{Binding Path=DataContext.DeleteVehicleCommand,RelativeSource={RelativeSource AncestorType=local:ManageFleetListing}}" Margin="10 0 0 0" CommandParameter="{Binding Id}"/>
+            <CheckBox Content="Select" IsChecked="{Binding IsSelected,Mode=TwoWay}"></CheckBox>
+            <Button Background="Red" BorderThickness="0" Content="Delete" Command="{Binding Path=DataContext.DeleteVehicleCommand,RelativeSource={RelativeSource AncestorType=local2:ManageFleetView}}" Margin="10 0 0 0" CommandParameter="{Binding Id}"/>
         </StackPanel>
         
         <Border BorderThickness="1" Background="Black"></Border>

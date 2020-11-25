@@ -18,6 +18,7 @@ using Transport.Notes.WPF.ViewModel.ControlViewModel;
 using Transport.Notes.WPF.ViewModel.ControlViewModel.FactoriesControl;
 using Transport.Notes.WPF.ViewModel.Factories;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
 
 namespace Transport.Notes.WPF
@@ -118,7 +119,7 @@ namespace Transport.Notes.WPF
             services.AddSingleton<IManageFleetService, ManageFleetService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();
-            services.AddSingleton<ManageFleetListingViewModel>();
+            services.AddSingleton<VehiclePageViewModel>();
             services.AddSingleton<VehicleState>();
             services.AddSingleton<INavigator, Navigator>();
 

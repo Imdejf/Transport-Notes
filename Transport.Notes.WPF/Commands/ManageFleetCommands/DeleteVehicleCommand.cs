@@ -1,43 +1,41 @@
-﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Documents;
 using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services.MenageFleetService;
-using Transport.Notes.EntityFramework.Services;
 using Transport.Notes.WPF.State.Accounts;
-using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
+using Transport.Notes.WPF.State.Vehicles;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet;
 
 namespace Transport.Notes.WPF.Commands.ManageFleetCommands
 {
     public class DeleteVehicleCommand : AsyncCommandBase
     {
-        private readonly ManageFleetListingViewModel _manageFleetListingViewModel;
         private readonly IManageFleetService _manageFleetService;
-        public DeleteVehicleCommand(ManageFleetListingViewModel manageFleetListingViewModel, IManageFleetService manageFleetService)
+        private readonly IAccountStore _accountStore;
+        public DeleteVehicleCommand(IManageFleetService manageFleetService, IAccountStore accountStore)
         {
-            _manageFleetListingViewModel = manageFleetListingViewModel;
             _manageFleetService = manageFleetService;
+            _accountStore = accountStore;
         }
         public override async Task ExecuteAsync(object parameter)
         {
-            var selectedTask = _manageFleetListingViewModel.Vehicles.Select(x => x.Id)
-                .ToList();
-            foreach(var tasks in selectedTask)
+            try
             {
-                if(tasks == (int)parameter)
+                bool result = await _manageFleetService.DeleteVehicle((int)parameter,_accountStore.CurrentAccount);
+                if (result != true)
                 {
-                  bool result = await _manageFleetService.DeleteVehicle(tasks);
-                    if (result == true)
-                    {
-                        _manageFleetListingViewModel.DeleteItem((int)parameter);
-                    }
+                    MessageBox.Show("You cannot delete the item");
                 }
+
+                _accountStore.CurrentAccount = _accountStore.CurrentAccount;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"{ex}");
             }
         }
     }
