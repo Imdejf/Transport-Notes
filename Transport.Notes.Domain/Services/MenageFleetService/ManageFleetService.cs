@@ -61,23 +61,22 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
             return result;
         }
 
-        public async Task<Account> EditVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar, Account accountId,int idVehicle)
+        public async Task<Account> EditVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar, Account accountId,int vehicleId)
         {
-            Vehicle vehicle = new Vehicle()
+            var item = accountId.Vehciles.FirstOrDefault(x => x.Id == vehicleId);
+            if(item != null)
             {
-                CarBrand = carBrand,
-                VIN = vin,
-                Milage = milage,
-                EngineNumber = engineNumber,
-                EngineCapacity = engineCapacity,
-                RegistrationNumber = registerNumber,
-                FirstRegistration = firstRegistration,
-                YearPurchase = yearPurchase,
-                YearProduction = yearProduction,
-                ImageCar = imageCar,
-                Account = accountId
-            };
-            await _accountService.Update(accountId, idVehicle);
+                item.CarBrand = carBrand;
+                item.VIN = vin;
+                item.Milage = milage;
+                item.EngineNumber = engineNumber;
+                item.EngineCapacity = engineCapacity;
+                item.RegistrationNumber = registerNumber;
+                item.YearPurchase = yearPurchase;
+                item.YearProduction = yearProduction;
+                item.ImageCar = imageCar;
+            }
+            await _accountService.Update(accountId, accountId.Id);
             return accountId;
         }
     }

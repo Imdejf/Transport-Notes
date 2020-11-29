@@ -12,6 +12,6 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
                                 DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction,byte [] imageCar,Account accountId);
         Task<bool> DeleteVehicle(int id,Account accountId);
         Task<Account> EditVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber,
-                        DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar, Account accountId,int idVehicle);
+                        DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar, Account accountId,int vehicleId);
     }
 }

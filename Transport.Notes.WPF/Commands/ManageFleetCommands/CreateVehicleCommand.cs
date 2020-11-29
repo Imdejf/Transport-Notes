@@ -26,6 +26,7 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
                 string carBrand = _manageFleetViewModel.CarBrand;
                 string vin = _manageFleetViewModel.VIN;
                 string milage = _manageFleetViewModel.Milage;
+                string engineNumber = _manageFleetViewModel.EngineNumber;
                 string engineCapacity = _manageFleetViewModel.EngineCapacity;
                 string registerNumber = _manageFleetViewModel.RegistrationNumber;
                 DateTime firstRegistration = _manageFleetViewModel.FirstRegistration;
@@ -34,7 +35,7 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
                 byte[] imageCar = _manageFleetViewModel.ImageCar;
 
 
-                Account account = await _manageFleetService.AddVehicle(carBrand, vin, milage, engineCapacity, engineCapacity, registerNumber, firstRegistration, yearPurchase, yearProduction, imageCar, _accountStore.CurrentAccount);
+                Account account = await _manageFleetService.AddVehicle(carBrand, vin, milage, engineNumber, engineCapacity, registerNumber, firstRegistration, yearPurchase, yearProduction, imageCar, _accountStore.CurrentAccount);
                 _accountStore.CurrentAccount = account;
             }
             catch (Exception ex)

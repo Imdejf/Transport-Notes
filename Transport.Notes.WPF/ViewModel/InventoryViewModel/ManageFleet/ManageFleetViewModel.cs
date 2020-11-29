@@ -183,7 +183,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
             SelectedItem = new RelayCommand(DispalySelectedItem);
             CreateVehicleCommand = new CreateVehicleCommand(this,manageFleetService,accountStore);
             DeleteVehicleCommand = new DeleteVehicleCommand(manageFleetService,accountStore);
-            UpdateVehicleCommand = new UpdateVehicleCommand(this, accountStore);
+            UpdateVehicleCommand = new UpdateVehicleCommand(this, accountStore,manageFleetService);
             _accountStore = accountStore;
             _vehicleState = vehicleState;
 

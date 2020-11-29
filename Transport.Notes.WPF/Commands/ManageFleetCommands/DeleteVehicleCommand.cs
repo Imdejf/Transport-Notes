@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Documents;
-using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.WPF.State.Accounts;
-using Transport.Notes.WPF.State.Vehicles;
-using Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet;
 
 namespace Transport.Notes.WPF.Commands.ManageFleetCommands
 {
