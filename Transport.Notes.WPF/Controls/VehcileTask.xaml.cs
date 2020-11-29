@@ -21,6 +21,7 @@ namespace Transport.Notes.WPF.Controls
         public VehcileTask()
         {
             InitializeComponent();
+
         }
     }
 }

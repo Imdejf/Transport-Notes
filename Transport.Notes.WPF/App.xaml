@@ -9,7 +9,6 @@
              xmlns:view="clr-namespace:Transport.Notes.WPF.Views"
              xmlns:viewControl ="clr-namespace:Transport.Notes.WPF.Controls.Category"
              xmlns:viewInventory="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
-             xmlns:ManageFleetControl="clr-namespace:Transport.Notes.WPF.Controls.MenageFleetControl"
              >
     <Application.Resources>
         <ResourceDictionary>
@@ -47,9 +46,6 @@
             <DataTemplate DataType="{x:Type viewmodelInventory:GeneralInformationViewModel}">
                 <viewInventory:GeneralInformation/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type ManageFleetControl:ManageFleetListing}">
-                <ManageFleetControl:ManageFleetListing/>
-            </DataTemplate> 
         </ResourceDictionary>
     </Application.Resources>
 </Application>
