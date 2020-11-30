@@ -1,13 +1,17 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using Microsoft.Win32;
+using System;
 using System.Collections.ObjectModel;
+using System.Drawing;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.WPF.Commands;
 using Transport.Notes.WPF.Commands.ManageFleetCommands;
-using Transport.Notes.WPF.Controls;
 using Transport.Notes.WPF.State.Accounts;
 using Transport.Notes.WPF.State.Vehicles;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet;
@@ -98,12 +102,12 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
                 OnPropertyChanged(nameof(RegistrationNumber));
             }
         }
-        private DateTime _fristRegistration {get;set;}
+        private DateTime _fristRegistration { get; set; }
         public DateTime FirstRegistration
         {
             get
             {
-                if(_fristRegistration.Year == 1) { return DateTime.Now; }
+                if (_fristRegistration.Year == 1) { return DateTime.Now; }
                 return _fristRegistration;
 
             }
@@ -115,10 +119,10 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         }
         private DateTime _yearPurchase { get; set; }
         public DateTime YearPurchase
-        { 
+        {
             get
             {
-                if(_yearPurchase.Year == 1) { return DateTime.Now; }
+                if (_yearPurchase.Year == 1) { return DateTime.Now; }
                 return _yearPurchase;
             }
             set
@@ -132,7 +136,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         {
             get
             {
-                if(_yearPurchase.Year == 1) { return DateTime.Now; }
+                if (_yearProduction.Year == 1) { return DateTime.Now; }
                 return _yearProduction;
             }
             set
@@ -160,7 +164,8 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         public ICommand CreateVehicleCommand { get; }
         public ICommand UpdateVehicleCommand { get; }
         public ICommand DeleteVehicleCommand { get; }
-        public ICommand SelectedItem { get; }
+        public ICommand SelectedItemCommand { get; }
+        public ICommand AddPictureCommand { get; }
         #endregion
 
         #region ObservableCollection
@@ -180,10 +185,11 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         #endregion
         public ManageFleetViewModel(VehicleState vehicleState, IManageFleetService manageFleetService, IAccountStore accountStore)
         {
-            SelectedItem = new RelayCommand(DispalySelectedItem);
+            SelectedItemCommand = new RelayCommand(DispalySelectedItem);
             CreateVehicleCommand = new CreateVehicleCommand(this,manageFleetService,accountStore);
             DeleteVehicleCommand = new DeleteVehicleCommand(manageFleetService,accountStore);
             UpdateVehicleCommand = new UpdateVehicleCommand(this, accountStore,manageFleetService);
+            AddPictureCommand = new RelayCommand(GetPicture);
             _accountStore = accountStore;
             _vehicleState = vehicleState;
 
@@ -234,6 +240,18 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
                 });
 
             }
+        }
+        private void GetPicture()
+        {
+            OpenFileDialog openFile = new OpenFileDialog();
+            openFile.Title = "image selection";
+            openFile.Filter = "JPG(.jpg)|*.jpg|PNG(.png)|*.png|JPEG(.jpeg)|*.jpeg";
+            if(openFile.ShowDialog() == true)
+            {
+                byte[] buffer = File.ReadAllBytes(openFile.FileName);
+                ImageCar = buffer;
+            }
+
         }
     }   
 }

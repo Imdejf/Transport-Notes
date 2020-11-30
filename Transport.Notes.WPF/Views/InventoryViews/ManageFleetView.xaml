@@ -6,48 +6,52 @@
         xmlns:local="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:controls ="clr-namespace:Transport.Notes.WPF.Controls" 
+        xmlns:converter ="clr-namespace:Transport.Notes.WPF.Converters"
         mc:Ignorable="d"
         Height="auto" Width="800">
-
     <Grid>
-        
-        <Grid.RowDefinitions>
+        <Image VerticalAlignment="Top" HorizontalAlignment="Left" Width="260" Height="260" Margin="20"
+                Source="{Binding ImageCar}">
+            
+        </Image>
+        <Button Content="Add picture" Command="{Binding AddPictureCommand}" FontSize="20" Width="150" Height="50" HorizontalAlignment="Left" Margin="74 0 0 0">
+            
+        </Button>
+        <Grid>
+            <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Margin="20 5 20 0">
-            <TextBox HorizontalAlignment="Left" Background="White" Text="{Binding CarBrand, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Car brand" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="20">
+            <TextBox HorizontalAlignment="Right" Background="White" Text="{Binding CarBrand, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Car brand" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+            <TextBox HorizontalAlignment="Center" Background="White" Text="{Binding Milage, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mileage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+        </Grid>
+        <Grid Grid.Row="1" Margin="20 5 20 0">
             <TextBox Background="White" Text="{Binding VIN, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="VIN" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
             <TextBox HorizontalAlignment="Right" Background="White" Text="{Binding EnigneNumber, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Engine number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
         </Grid>
-        <Grid Grid.Row="1" Margin="20">
-            <TextBox HorizontalAlignment="Left" Background="White" Text="{Binding Milage, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Mileage" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
+        <Grid Grid.Row="2" Margin="20">
             <TextBox Background="White" Text="{Binding EngineCapacity, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Engine Capacity" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
-            <DatePicker SelectedDate="{Binding FirstRegistration}" HorizontalAlignment="Right" Height="50" Width="200" materialDesign:HintAssist.Hint="First registration" FontSize="18" Background="White" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+            <TextBox HorizontalAlignment="Right"  Background="White" Text="{Binding RegistrationNumber, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Registration number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
         </Grid>
-        <Grid Grid.Row="2" Margin="20 0 20 0">
-            <TextBox HorizontalAlignment="Left"  Background="White" Text="{Binding RegistrationNumber, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Registration number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="18" Height="50" Width="200"/>
-            <DatePicker SelectedDate="{Binding YearPurchase}" HorizontalAlignment="Center" Height="50" Width="200" materialDesign:HintAssist.Hint="Year of Purchase" FontSize="18" Background="White" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+        <Grid Grid.Row="3" Margin="20 0 20 0">
+            <DatePicker SelectedDate="{Binding FirstRegistration}" HorizontalAlignment="Center" Height="50" Width="200" materialDesign:HintAssist.Hint="First registration" FontSize="18" Background="White" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
             <DatePicker SelectedDate="{Binding YearProduction}" HorizontalAlignment="Right" Height="50" Width="200" materialDesign:HintAssist.Hint="Year of production" FontSize="18" Background="White" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
         </Grid>
-        <Grid Grid.Row="3">
-            <Button HorizontalAlignment="Left" Height="50" Width="200" Margin="20 10 0 0">
-                <Button.Content>
-                    <TextBlock Text="Add picture"/>
-                </Button.Content>
-            </Button>
-            <TextBlock Text="{Binding CarPicture}" Padding="10" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" FontSize="20" Margin="200 10 0 0" Background="White" Width="500" >
-
-            </TextBlock>
+        <Grid Grid.Row="4" Margin="100 20 -200 0">
+            <DatePicker SelectedDate="{Binding YearPurchase}" HorizontalAlignment="Center" Height="50" Width="200" materialDesign:HintAssist.Hint="Year of Purchase" FontSize="18" Background="White" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
         </Grid>
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="5">
             <Button
                 Command="{Binding CreateVehicleCommand}"
-                Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Left" Margin="40 20 0 0">
+                Style="{DynamicResource InventoryButton}" Height="50" Width="180" HorizontalAlignment="Center" Margin="120 20 0 0">
                 <Button.Background>
                     <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                         <GradientStop Color="#FF5DFF00"/>
@@ -58,31 +62,33 @@
                     <TextBlock Text="Add" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
                 </Button.Content>
             </Button>
-            <Button Command="{Binding UpdateVehicleCommand}"
-                    Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Center" Margin="0 20 0 0">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF0051FF"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Content>
-                    <TextBlock Text="Update" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
-                </Button.Content>
-            </Button>
-            <Button Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Right" Margin="0 20 40 0">
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFFF3A00"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Button.Background>
-                <Button.Content>
-                    <TextBlock Text="Clear All" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
-                </Button.Content>
-            </Button>
-        </Grid>
-        <Grid Grid.Row="5" Height="200" Margin="0 10 0 0">
+                <Button Command="{Binding UpdateVehicleCommand}"
+                    Style="{DynamicResource InventoryButton}" Height="50" Width="180" HorizontalAlignment="Right" Margin="0 20 30 0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0051FF"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Content>
+                        <TextBlock Text="Update" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                    </Button.Content>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="6">
+                <Button Style="{DynamicResource InventoryButton}" Height="50" Width="200" HorizontalAlignment="Right" Margin="0 10 120 0">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFF3A00"/>
+                            <GradientStop Color="White" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <Button.Content>
+                        <TextBlock Text="Clear All" FontSize="20" FontWeight="Bold" Foreground="Gray"/>
+                    </Button.Content>
+                </Button>
+            </Grid>
+            <Grid Grid.Row="7" Height="200" Margin="0 10 0 0">
             <StackPanel Background="White">
                 <ItemsControl ItemsSource="{Binding VehiclesList}">
                     <ItemsControl.ItemTemplate>
@@ -93,5 +99,7 @@
                 </ItemsControl>
             </StackPanel>
         </Grid>
+        </Grid>
+
     </Grid>
 </UserControl>
