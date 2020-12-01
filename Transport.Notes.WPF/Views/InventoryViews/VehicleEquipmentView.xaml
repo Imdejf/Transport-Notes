@@ -4,9 +4,67 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             xmlns:VehicleEquipmentTask="clr-namespace:Transport.Notes.WPF.Controls.EquipmentTask"
+    mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="VehicleEquipment" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="100"></TextBlock>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250px"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ItemsControl>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <WrapPanel IsItemsHost="True">
+                            <VehicleEquipmentTask:EquipmentTask/>
+                        </WrapPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
+        <Grid Grid.Row="1">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="200" Margin="-2 0 200 0">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF39B4EE"/>
+                        <GradientStop Color="#FF547FDC" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Add equipment" FontSize="20px"/>
+                <StackPanel Height="166">
+
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Add your own" FontSize="20px"/>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" Opacity="0.5" Height="30" Width="160" HorizontalAlignment="Left" Background="White" FontSize="15px"/>
+                        <Button Grid.Column="1" Width="40" Background="Transparent" Padding="0" BorderThickness="0">
+                            <Image Source="/Resources/addequipment.png"/>
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="200" Margin="2 0 -200 0">
+                <StackPanel.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF39B4EE"/>
+                        <GradientStop Color="#FF547FDC" Offset="1"/>
+                    </LinearGradientBrush>
+                </StackPanel.Background>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Vehicle equipment" FontSize="20px"/>
+                <StackPanel Height="192.5px">
+
+                </StackPanel>
+                <Button Background="#FFF15239" Content="DELETE SELECTED">
+                    
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </UserControl>

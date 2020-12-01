@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="Transport.Notes.WPF.Controls.EquipmentTask.EquipmentTask"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Transport.Notes.WPF.Controls.EquipmentTask"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="250">
+    <Grid>
+        <RadioButton Width="250" Height="250" Background="Red">
+            
+        </RadioButton>
+    </Grid>
+</UserControl>
