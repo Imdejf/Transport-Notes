@@ -54,11 +54,16 @@ namespace Transport.Notes.Domain.Services.MenageFleetService
 
         public async Task<bool> DeleteVehicle(int id,Account accountId)
         {
-            Account account = accountId as Account;
-            bool result = await _vehicleService.Delete(id);
-            var task = account.Vehciles.FirstOrDefault(s => s.Id == id);
-            account.Vehciles.Remove(task);
+            bool result = true;
+            if (result == true)
+            {
+                Account account = accountId as Account;
+                await _vehicleService.Delete(id);
+                var task = account.Vehciles.FirstOrDefault(s => s.Id == id);
+                account.Vehciles.Remove(task);
+            }
             return result;
+
         }
 
         public async Task<Account> EditVehicle(string carBrand, string vin, string milage, string engineNumber, string engineCapacity, string registerNumber, DateTime firstRegistration, DateTime yearPurchase, DateTime yearProduction, byte[] imageCar, Account accountId,int vehicleId)

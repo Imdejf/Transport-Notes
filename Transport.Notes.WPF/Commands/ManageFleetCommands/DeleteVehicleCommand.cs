@@ -25,7 +25,6 @@ namespace Transport.Notes.WPF.Commands.ManageFleetCommands
                     MessageBox.Show("You cannot delete the item");
                 }
 
-                _accountStore.CurrentAccount = _accountStore.CurrentAccount;
             }
             catch(Exception ex)
             {
