@@ -20,6 +20,7 @@ using Transport.Notes.WPF.ViewModel.Factories;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.VehicleEquipment;
 
 namespace Transport.Notes.WPF
 {
@@ -90,10 +91,10 @@ namespace Transport.Notes.WPF
             #endregion
 
             #region InventoryViews
-            services.AddSingleton<VehicleEquipmentViewModel>();
-            services.AddSingleton<CreateViewModel<VehicleEquipmentViewModel>>(services =>
+            services.AddSingleton<EquipmentViewModel>();
+            services.AddSingleton<CreateViewModel<EquipmentViewModel>>(services =>
             {
-                return () => services.GetRequiredService<VehicleEquipmentViewModel>();
+                return () => services.GetRequiredService<EquipmentViewModel>();
             });
  
             services.AddSingleton<ManageFleetViewModel>();

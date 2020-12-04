@@ -2,6 +2,7 @@
 using Transport.Notes.WPF.State.Navigators;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet;
+using Transport.Notes.WPF.ViewModel.InventoryViewModel.VehicleEquipment;
 
 namespace Transport.Notes.WPF.ViewModel.Factories
 {
@@ -11,12 +12,12 @@ namespace Transport.Notes.WPF.ViewModel.Factories
         private readonly CreateViewModel<LoginViewModel> _createLoginViewModel;
         private readonly CreateViewModel<DriversBaseViewModel> _createDriversBaseViewModel;
         private readonly CreateViewModel<ManageFleetViewModel> _createMenageFleetViewModel;
-        private readonly CreateViewModel<VehicleEquipmentViewModel> _createVehicleEquipmentViewModel;
+        private readonly CreateViewModel<EquipmentViewModel> _createVehicleEquipmentViewModel;
         private readonly CreateViewModel<GeneralInformationViewModel> _createGeneralInformationViewModel;
 
         public TransportNotesViewModelFacotry(CreateViewModel<LoginViewModel> createLoginViewModel, CreateViewModel<StartViewModel> createStartViewModel,
                                              CreateViewModel<DriversBaseViewModel> createDriversBaseViewModel, CreateViewModel<ManageFleetViewModel> createMenageFleetViewModel,
-                                             CreateViewModel<VehicleEquipmentViewModel> createVehicleEquipmentViewModel,CreateViewModel<GeneralInformationViewModel> createGeneralInformationViewModel)
+                                             CreateViewModel<EquipmentViewModel> createVehicleEquipmentViewModel,CreateViewModel<GeneralInformationViewModel> createGeneralInformationViewModel)
         {
             _createLoginViewModel = createLoginViewModel;
             _createStartViewModel = createStartViewModel;

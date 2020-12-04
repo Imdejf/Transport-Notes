@@ -13,12 +13,10 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <ItemsControl>
+            <ItemsControl ItemsSource="{Binding VehicleList}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <WrapPanel IsItemsHost="True">
                             <VehicleEquipmentTask:EquipmentTask/>
-                        </WrapPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

@@ -99,6 +99,7 @@ namespace Transport.Notes.Tests.Services
             account.Vehciles.Add(vehicle);
             await _manageFleetService.EditVehicle(expected, It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<string>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<DateTime>(), It.IsAny<byte[]>(), account, 5);
             string actual = vehicle.CarBrand;
+            Assert.AreEqual(expected, actual);
         }
         private Account CreateAccount()
         {
