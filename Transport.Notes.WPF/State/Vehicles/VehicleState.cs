@@ -1,27 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore.Diagnostics;
+using System;
 using Transport.Notes.Domain.Models;
-using Transport.Notes.WPF.State.Accounts;
 
 namespace Transport.Notes.WPF.State.Vehicles
 {
-    public class VehicleState
+    public class VehicleState : IVehicleState
     {
-        private readonly IAccountStore _accountStore;
-
-        public IEnumerable<Vehicle> GetVehicles => _accountStore.CurrentAccount?.Vehciles ?? new List<Vehicle>();
-       
+        private Vehicle _currentVehicle;
+        public Vehicle CurrentVehicle
+        { 
+            get
+            {
+                return _currentVehicle;
+            }
+            set
+            {
+                _currentVehicle = value;
+                StateChanged?.Invoke();
+            }
+        }
         public event Action StateChanged;
-
-        public VehicleState(IAccountStore accountStore)
-        {
-            _accountStore = accountStore;
-            _accountStore.StateChanged += OnStateChanged;
-        }
-
-        private void OnStateChanged()
-        {
-            StateChanged?.Invoke();
-        }
     }
 }
