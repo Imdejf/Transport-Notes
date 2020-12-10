@@ -19,6 +19,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.Blue.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Indigo.xaml" />
                 <ResourceDictionary Source="/Style/RadioButtonSelect.xaml"/>
+                <ResourceDictionary Source="/Style/VehicleEquipmentRadioButton.xaml"/>
                 <ResourceDictionary Source="/Style/NavigationBar.xaml"/>
                 <ResourceDictionary Source="/Style/InventoryControl.xaml"/>
                 <ResourceDictionary Source="/Style/InventoryButton.xaml"/>

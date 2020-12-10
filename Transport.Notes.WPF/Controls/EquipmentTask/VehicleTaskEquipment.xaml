@@ -6,9 +6,69 @@
              xmlns:local="clr-namespace:Transport.Notes.WPF.Controls.EquipmentTask"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="250">
-    <Grid>
-        <RadioButton Width="250" Height="250" Background="Red">
-            
-        </RadioButton>
-    </Grid>
+    <RadioButton Style="{StaticResource VehicleEquipmentRadioButton}">
+        <RadioButton.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="White"/>
+                <GradientStop Color="#FF58F0FF" Offset="1"/>
+            </LinearGradientBrush>
+        </RadioButton.Background>
+        <Grid Height="250" Width="250">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Margin="0 0 0 0" HorizontalAlignment="Left">
+                <CheckBox IsChecked="{Binding IsSelected}" HorizontalAlignment="Right"/>
+                <Image Source="{Binding ImageCar}" Width="120" Height="120"/>
+            </Grid>
+            <Grid Grid.Row="1" Margin="0 3 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="125"/>
+                    <ColumnDefinition Width="125"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0" Height="41.66">
+                    <StackPanel>
+                        <TextBlock Text="Brand" FontSize="10"/>
+                        <TextBlock Text="{Binding CarBrand}" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="0">
+                    <StackPanel>
+                        <TextBlock Text="Registration Number" FontSize="10"/>
+                        <TextBlock Text="{Binding RegistrationNumber}" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Height="41.66">
+                    <StackPanel>
+                        <TextBlock Text="VIN" FontSize="10"/>
+                        <TextBlock Text="{Binding VIN}" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <StackPanel>
+                        <TextBlock Text="Registration Date" FontSize="10"/>
+                        <TextBlock Text="{Binding FirstRegistration}" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2" Height="41.66">
+                    <StackPanel>
+                        <TextBlock Text="Milage" FontSize="10"/>
+                        <TextBlock Text="{Binding Milage}" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <StackPanel>
+                        <TextBlock Text="Year Purchase" FontSize="10"/>
+                        <TextBlock Text="{Binding YearPurchase}" Margin="10 0 0 0"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </Grid>
+    </RadioButton>
 </UserControl>

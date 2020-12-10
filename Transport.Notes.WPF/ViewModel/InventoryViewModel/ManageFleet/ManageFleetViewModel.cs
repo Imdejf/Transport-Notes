@@ -16,7 +16,6 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
     public class ManageFleetViewModel : ViewModelBase
     {
         private readonly IAccountStore _accountStore;
-        private readonly VehicleState _vehicleState;
 
         #region Properties
         private string _carBrand { get; set; }
@@ -178,7 +177,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
             }
         }
         #endregion
-        public ManageFleetViewModel(VehicleState vehicleState, IManageFleetService manageFleetService, IAccountStore accountStore)
+        public ManageFleetViewModel(IManageFleetService manageFleetService, IAccountStore accountStore)
         {
             SelectedItemCommand = new RelayCommand(DispalySelectedItem);
             CreateVehicleCommand = new CreateVehicleCommand(this,manageFleetService,accountStore);
@@ -186,9 +185,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
             UpdateVehicleCommand = new UpdateVehicleCommand(this, accountStore,manageFleetService);
             AddPictureCommand = new RelayCommand(GetPicture);
             _accountStore = accountStore;
-            _vehicleState = vehicleState;
 
-            _vehicleState.StateChanged += _vehicleState_StateChanged;
             ResetVehicles();
         }
         private void DispalySelectedItem()
@@ -207,10 +204,6 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
                 YearProduction = task.YearProduction;
                 ImageCar = task.ImageCar;
             }
-        }
-        private void _vehicleState_StateChanged()
-        {
-            ResetVehicles();
         }
 
         private void ResetVehicles()
@@ -244,7 +237,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
             if(openFile.ShowDialog() == true)
             {
                 byte[] buffer = File.ReadAllBytes(openFile.FileName);
-                ImageCar = buffer;
+                ImageCar = buffer; 
             }
 
         }

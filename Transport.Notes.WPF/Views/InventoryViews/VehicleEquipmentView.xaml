@@ -4,65 +4,41 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:VehicleEquipmentTask="clr-namespace:Transport.Notes.WPF.Controls.EquipmentTask"
     mc:Ignorable="d" 
              d:DesignHeight="900" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="350px"/>
-            <RowDefinition Height="650"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="1.1px"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
             <ItemsControl ItemsSource="{Binding VehicleList}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <VehicleEquipmentTask:EquipmentTask/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
-        <Grid Grid.Row="1" >
-            <StackPanel HorizontalAlignment="Center" Height="250" Width="200" Margin="-2 0 200 0">
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF39B4EE"/>
-                        <GradientStop Color="#FF547FDC" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Add equipment" FontSize="20px"/>
-                <StackPanel Height="166">
+        <Grid Grid.Row="1" Height="200px" Background="WhiteSmoke">
 
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Add your own" FontSize="20px"/>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="auto"/>
-                            <ColumnDefinition Width="auto"/>
-                        </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" Opacity="0.5" Height="30" Width="160" HorizontalAlignment="Left" Background="White" FontSize="15px"/>
-                        <Button Grid.Column="1" Width="40" Background="Transparent" Padding="0" BorderThickness="0">
-                            <Image Source="/Resources/addequipment.png"/>
-                        </Button>
-                    </Grid>
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="250" Width="200" Margin="2 0 -200 0">
-                <StackPanel.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FF39B4EE"/>
-                        <GradientStop Color="#FF547FDC" Offset="1"/>
-                    </LinearGradientBrush>
-                </StackPanel.Background>
-                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Top" Text="Vehicle equipment" FontSize="20px"/>
-                <StackPanel Height="192.5px">
-
-                </StackPanel>
-                <Button Background="#FFF15239" Content="DELETE SELECTED">
-                    
-                </Button>
-            </StackPanel>
+            
+                
         </Grid>
-    </Grid>
+        <Grid Grid.Row="2" Background="Black">
+               
+        </Grid>
+        <Grid Grid.Row="3" Margin="0 2 0 0">
+            <TextBox Width="300px" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Background="White" Text="{Binding EquipmentName, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Name"  FontSize="18" />
+            <TextBox  HorizontalAlignment="Center" Text="{Binding Quantity, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="100" materialDesign:HintAssist.Hint="Quantity" FontSize="18" Background="White" />
+            <DatePicker SelectedDate="{Binding DateEquipment}" HorizontalAlignment="Right" Margin="0 0 90 0" Height="50" Width="200" materialDesign:HintAssist.Hint="Year of production" FontSize="18" Background="White" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"/>
+            <Button Command="{Binding AddEquipmentCommand}" Width="40" Height="35" Padding="0" HorizontalAlignment="Right" Background="Transparent">
+                <Image Source="/Resources/addequipment.png" Height="35" />
+            </Button>
+        </Grid>
+        </Grid>
 </UserControl>

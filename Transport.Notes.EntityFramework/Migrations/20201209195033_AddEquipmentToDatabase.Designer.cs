@@ -10,7 +10,7 @@ using Transport.Notes.EntityFramework;
 namespace Transport.Notes.EntityFramework.Migrations
 {
     [DbContext(typeof(TransportNotesDbContext))]
-    [Migration("20201207163338_AddEquipmentToDatabase")]
+    [Migration("20201209195033_AddEquipmentToDatabase")]
     partial class AddEquipmentToDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,7 +54,12 @@ namespace Transport.Notes.EntityFramework.Migrations
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
 
+                    b.Property<int?>("VehicleEquipmentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("VehicleEquipmentId");
 
                     b.ToTable("Equipments");
                 });
@@ -102,9 +107,6 @@ namespace Transport.Notes.EntityFramework.Migrations
                     b.Property<string>("EngineNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("EquipmentId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("FirstRegistration")
                         .HasColumnType("datetime2");
 
@@ -130,8 +132,6 @@ namespace Transport.Notes.EntityFramework.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.HasIndex("EquipmentId");
-
                     b.ToTable("Vehicles");
                 });
 
@@ -142,15 +142,18 @@ namespace Transport.Notes.EntityFramework.Migrations
                         .HasForeignKey("AccountHolderId");
                 });
 
+            modelBuilder.Entity("Transport.Notes.Domain.Models.Equipment", b =>
+                {
+                    b.HasOne("Transport.Notes.Domain.Models.Vehicle", "VehicleEquipment")
+                        .WithMany("Equipment")
+                        .HasForeignKey("VehicleEquipmentId");
+                });
+
             modelBuilder.Entity("Transport.Notes.Domain.Models.Vehicle", b =>
                 {
                     b.HasOne("Transport.Notes.Domain.Models.Account", "Account")
                         .WithMany("Vehciles")
                         .HasForeignKey("AccountId");
-
-                    b.HasOne("Transport.Notes.Domain.Models.Equipment", "Equipment")
-                        .WithMany()
-                        .HasForeignKey("EquipmentId");
                 });
 #pragma warning restore 612, 618
         }

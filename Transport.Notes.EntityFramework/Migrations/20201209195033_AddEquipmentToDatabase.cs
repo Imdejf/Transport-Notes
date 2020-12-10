@@ -7,11 +7,6 @@ namespace Transport.Notes.EntityFramework.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AddColumn<int>(
-                name: "EquipmentId",
-                table: "Vehicles",
-                nullable: true);
-
             migrationBuilder.CreateTable(
                 name: "Equipments",
                 columns: table => new
@@ -20,43 +15,30 @@ namespace Transport.Notes.EntityFramework.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     EquipmentName = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
-                    DateGive = table.Column<DateTime>(nullable: false)
+                    DateGive = table.Column<DateTime>(nullable: false),
+                    VehicleEquipmentId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Equipments", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Equipments_Vehicles_VehicleEquipmentId",
+                        column: x => x.VehicleEquipmentId,
+                        principalTable: "Vehicles",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Vehicles_EquipmentId",
-                table: "Vehicles",
-                column: "EquipmentId");
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Vehicles_Equipments_EquipmentId",
-                table: "Vehicles",
-                column: "EquipmentId",
-                principalTable: "Equipments",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+                name: "IX_Equipments_VehicleEquipmentId",
+                table: "Equipments",
+                column: "VehicleEquipmentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Vehicles_Equipments_EquipmentId",
-                table: "Vehicles");
-
             migrationBuilder.DropTable(
                 name: "Equipments");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Vehicles_EquipmentId",
-                table: "Vehicles");
-
-            migrationBuilder.DropColumn(
-                name: "EquipmentId",
-                table: "Vehicles");
         }
     }
 }

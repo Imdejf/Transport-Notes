@@ -17,6 +17,6 @@ namespace Transport.Notes.Domain.Models
         public DateTime YearProduction { get; set; }
         public byte[] ImageCar { get; set; }  
         public virtual Account Account { get; set; }
-        public Equipment Equipment { get; set; }
+        public ICollection<Equipment> Equipment { get; set; }
     }
 }

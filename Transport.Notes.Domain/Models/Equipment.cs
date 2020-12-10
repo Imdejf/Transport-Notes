@@ -9,5 +9,6 @@ namespace Transport.Notes.Domain.Models
         public string EquipmentName { get; set; }
         public int Quantity { get; set; }
         public DateTime DateGive { get; set; }
+        public Vehicle VehicleEquipment { get; set; }
     }
 }

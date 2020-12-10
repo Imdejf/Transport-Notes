@@ -2,5 +2,6 @@
 {
     public class EquipmentModel : ViewModelBase
     {
+        public string Item { get; set; }
     }
 }

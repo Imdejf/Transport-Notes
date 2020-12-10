@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using Transport.Notes.Domain.Exceptions;
 using Transport.Notes.Domain.Expections;
 using Transport.Notes.WPF.State.Authenticators;

@@ -5,6 +5,7 @@ using System.Windows;
 using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services;
 using Transport.Notes.Domain.Services.AuthenticationService;
+using Transport.Notes.Domain.Services.EquipmentService;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.EntityFramework;
 using Transport.Notes.EntityFramework.Services;
@@ -118,6 +119,7 @@ namespace Transport.Notes.WPF
             #endregion
             services.AddSingleton<IAuthenticator, Authenticator>();
             services.AddSingleton<IManageFleetService, ManageFleetService>();
+            services.AddSingleton<IEquipmentService, EquipmentService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();
             services.AddSingleton<VehicleState>();

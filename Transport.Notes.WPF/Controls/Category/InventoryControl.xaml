@@ -89,7 +89,7 @@
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <Image Margin="0 0 0 0" Grid.Column="0" Source="/Resources/bus-driver.png" Width="30" HorizontalAlignment="Left" />
-                                    <TextBlock Grid.Column="1" Text="Drivers base" Margin="3 0 0 0" FontWeight="Medium" FontSize="15" VerticalAlignment="Center" />
+                                    <TextBlock Grid.Column="1" Text="Drivers base" Margin="3,0,0,6" FontWeight="Medium" FontSize="15" VerticalAlignment="Bottom" />
                                 </Grid>
 
                             </StackPanel>

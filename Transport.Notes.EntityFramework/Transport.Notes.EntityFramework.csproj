@@ -9,6 +9,12 @@
     <Compile Remove="Migrations\20201022154841_AddVehicleToDatabase.Designer.cs" />
     <Compile Remove="Migrations\20201031143402_FixInAccount.cs" />
     <Compile Remove="Migrations\20201031143402_FixInAccount.Designer.cs" />
+    <Compile Remove="Migrations\20201207163338_AddEquipmentToDatabase.cs" />
+    <Compile Remove="Migrations\20201207163338_AddEquipmentToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20201209184451_AddEquipmentToDatabase.cs" />
+    <Compile Remove="Migrations\20201209184451_AddEquipmentToDatabase.Designer.cs" />
+    <Compile Remove="Migrations\20201209192048_AddEquipmentToDatabase.cs" />
+    <Compile Remove="Migrations\20201209192048_AddEquipmentToDatabase.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
