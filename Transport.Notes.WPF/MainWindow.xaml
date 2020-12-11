@@ -7,9 +7,31 @@
         xmlns:controls="clr-namespace:Transport.Notes.WPF.Controls"
         xmlns:testcontrol="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
         mc:Ignorable="d"
-        Title="Transport Notes" Height="500" Width="800">
+        Title="Transport Notes" Height="500" Width="800" WindowStyle="None">
     <Grid Background="#f9f8f4">
-        <Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF361F1F"/>
+                    <GradientStop Color="#FF3B9DFF" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Orientation="Horizontal">
+                <Button Background="#FFC6CFD6" BorderThickness="0" Height="25" Content="_"/>
+                <Button Background="#FFC6CFD6" BorderThickness="0" Height="25" Content="[ ]"/>
+                <Button Background="Red" BorderThickness="0" Content="X" Height="25"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="*"/>
@@ -49,5 +71,6 @@
             <controls:WidgetControl/>
         </Grid>
     </Grid>
-    
+    </Grid>
+
 </Window>
