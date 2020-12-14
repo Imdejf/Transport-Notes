@@ -10,5 +10,6 @@ namespace Transport.Notes.Domain.Services
     {
         Task<Vehicle> GetByVIN(string vin);
         Task<Vehicle> GetByRegistrationNumber(string registrationNumber);
+        Task<Vehicle> GetById(int id);
     }
 }

@@ -3,7 +3,10 @@ using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.WPF.Commands;
 using Transport.Notes.WPF.Commands.ManageFleetCommands;
@@ -190,6 +193,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
         }
         private void DispalySelectedItem()
         {
+                        
             var item = VehiclesList.Where(s => s.IsSelected);
             foreach(var task in item)
             {
@@ -208,7 +212,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.MenageFleet
 
         private void ResetVehicles()
         {
-            _vehiclesList.Clear();
+            
             foreach (var task in _accountStore.CurrentAccount.Vehciles.ToList())
             {
                 VehiclesList.Add(new VehicleModel

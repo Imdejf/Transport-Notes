@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Transport.Notes.WPF.Controls.EquipmentTask"
+             xmlns:local2="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="250">
     <RadioButton Style="{StaticResource VehicleEquipmentRadioButton}">
@@ -19,7 +20,7 @@
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Margin="0 0 0 0" HorizontalAlignment="Left">
-                <CheckBox IsChecked="{Binding IsSelected}" HorizontalAlignment="Right"/>
+                <Button  Command="{Binding Path=DataContext.SelectCommand,RelativeSource={RelativeSource AncestorType=local2:VehicleEquipmentView}}" Margin="10 0 0 0" CommandParameter="{Binding Id}"></Button>
                 <Image Source="{Binding ImageCar}" Width="120" Height="120"/>
             </Grid>
             <Grid Grid.Row="1" Margin="0 3 0 0">

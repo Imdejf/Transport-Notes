@@ -25,9 +25,9 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Orientation="Horizontal">
-                <Button Background="#FFC6CFD6" BorderThickness="0" Height="25" Content="_"/>
-                <Button Background="#FFC6CFD6" BorderThickness="0" Height="25" Content="[ ]"/>
-                <Button Background="Red" BorderThickness="0" Content="X" Height="25"/>
+                <Button Background="Gray" BorderThickness="0" Height="25" Content="_"/>
+                <Button Background="Gray" BorderThickness="0" Height="25" Content="[ ]"/>
+                <Button Command="{Binding Path=DataContext.CloseButtonCommand,RelativeSource={RelativeSource AncestorType=local:MainWindow}}" Background="Red" BorderThickness="0" Content="X" Height="25"/>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">

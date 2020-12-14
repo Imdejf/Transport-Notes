@@ -32,9 +32,9 @@ namespace Transport.Notes.EntityFramework.Services
         {
             using(TransportNotesDbContext context = _contextFacotry.CreateDbContext())
             {
-                Vehicle entity = await context.Vehicles
+                return await context.Vehicles
+                    .Include(e => e.Equipment)
                     .FirstOrDefaultAsync((e) => e.Id == id);
-                return entity;
             }
         }
 
@@ -45,6 +45,17 @@ namespace Transport.Notes.EntityFramework.Services
                 IEnumerable<Vehicle> entites = await context.Vehicles
                      .ToListAsync();
                 return entites;
+            }
+        }
+
+        public async Task<Vehicle> GetById(int id)
+        {
+            using (TransportNotesDbContext context = _contextFacotry.CreateDbContext())
+            {
+                return await context.Vehicles
+                    .Include(i => i.Id)
+                    .Include(a => a.Equipment)
+                    .FirstOrDefaultAsync(a => a.Id == id);
             }
         }
 

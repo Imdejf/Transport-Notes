@@ -7,7 +7,7 @@ namespace Transport.Notes.WPF.State.Accounts
 {
     public class AccountStore : IAccountStore
     {
-        private Account _currentAccount;
+       private Account _currentAccount;
         public Account CurrentAccount
         {
             get

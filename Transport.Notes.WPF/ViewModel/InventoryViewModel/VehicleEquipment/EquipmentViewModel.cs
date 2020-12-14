@@ -1,10 +1,17 @@
-﻿using System;
+﻿using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Security.Policy;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using Transport.Notes.Domain.Models;
 using Transport.Notes.Domain.Services.EquipmentService;
+using Transport.Notes.WPF.Commands;
 using Transport.Notes.WPF.Commands.VehicleEquipmentCommands;
 using Transport.Notes.WPF.State.Accounts;
+using Transport.Notes.WPF.State.Equipment;
 using Transport.Notes.WPF.State.Vehicles;
 using Transport.Notes.WPF.ViewModel.InventoryViewModel.ManageFleet;
 
@@ -12,6 +19,7 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.VehicleEquipment
 {
     public class EquipmentViewModel : ViewModelBase
     {
+        private readonly IVehicleState _vehicleState;
         private readonly IAccountStore _accountStore;
         #region ObservableCollection
         private ObservableCollection<VehicleModel> _vehicleList = new ObservableCollection<VehicleModel>();
@@ -86,14 +94,31 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.VehicleEquipment
         #endregion
         #region Command
         public ICommand AddEquipmentCommand { get; set; } 
+        public ICommand SelectedVehcile { get; set; }
+        public ICommand SelectCommand { get; set; }
+
         #endregion
-        public EquipmentViewModel(IAccountStore accountStore, VehicleState vehicleState,IEquipmentService equipmentService)
+
+        public EquipmentViewModel(IAccountStore accountStore,IEquipmentService equipmentService,IEquipmentState equipmentState, IVehicleState vehicleState)
         {
-            AddEquipmentCommand = new AddEquipmentCommand(this,vehicleState,equipmentService);
+            SelectCommand = new SelectedEquipmentCommand(equipmentService, equipmentState, this);
+            AddEquipmentCommand = new AddEquipmentCommand(this,equipmentState,equipmentService);
             _accountStore = accountStore;
+            _vehicleState = vehicleState;
             DisplayVehicle();
         }
-
+        public void DisplayEquipment()
+        {
+            foreach(var task in _vehicleState.CurrentVehicle.Equipment)
+            {
+                EquipmentList.Add(new EquipmentModel
+                {
+                    NameEquipment = task.EquipmentName,
+                    Quantity = task.Quantity,
+                    DateEquipment = task.DateGive,
+                });;
+            }
+        }
         private void DisplayVehicle()
         {
             _vehicleList.Clear();

@@ -67,7 +67,7 @@ namespace Transport.Notes.EntityFramework.Services
         {
             using(TransportNotesDbContext context = _contextFacotry.CreateDbContext())
             {
-                return await context.Accounts
+                return  await context.Accounts
                     .Include(a => a.AccountHolder)
                     .Include(a => a.Vehciles)
                     .FirstOrDefaultAsync(a => a.AccountHolder.Username == username);

@@ -9,8 +9,10 @@ using Transport.Notes.Domain.Services.EquipmentService;
 using Transport.Notes.Domain.Services.MenageFleetService;
 using Transport.Notes.EntityFramework;
 using Transport.Notes.EntityFramework.Services;
+using Transport.Notes.WPF.State;
 using Transport.Notes.WPF.State.Accounts;
 using Transport.Notes.WPF.State.Authenticators;
+using Transport.Notes.WPF.State.Equipment;
 using Transport.Notes.WPF.State.NavigatorControls;
 using Transport.Notes.WPF.State.Navigators;
 using Transport.Notes.WPF.State.Vehicles;
@@ -117,14 +119,16 @@ namespace Transport.Notes.WPF
                 return () => services.GetRequiredService<GeneralInformationViewModel>();
             });
             #endregion
+            services.AddSingleton<IEquipmentState, EquipmentState>();
             services.AddSingleton<IAuthenticator, Authenticator>();
             services.AddSingleton<IManageFleetService, ManageFleetService>();
             services.AddSingleton<IEquipmentService, EquipmentService>();
             services.AddSingleton<IAuthenticationService, AuthenticationService>();
             services.AddSingleton<INavigatorControl, NavigatorControl>();
-            services.AddSingleton<VehicleState>();
+            services.AddSingleton<IVehicleState,VehicleState>();
             services.AddSingleton<ManageFleetViewModel>();
             services.AddSingleton<INavigator, Navigator>();
+            services.AddSingleton<Window>();
 
             services.AddScoped<MainViewModel>();
             services.AddScoped<MainWindow>(s => new MainWindow(s.GetRequiredService<MainViewModel>()));
