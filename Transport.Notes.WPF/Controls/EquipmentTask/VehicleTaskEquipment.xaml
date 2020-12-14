@@ -7,20 +7,19 @@
              xmlns:local2="clr-namespace:Transport.Notes.WPF.Views.InventoryViews"
              mc:Ignorable="d" 
              d:DesignHeight="250" d:DesignWidth="250">
-    <RadioButton Style="{StaticResource VehicleEquipmentRadioButton}">
-        <RadioButton.Background>
+    <Button Height="250" Command="{Binding Path=DataContext.SelectCommand,RelativeSource={RelativeSource AncestorType=local2:VehicleEquipmentView}}" CommandParameter="{Binding Id}">
+        <Button.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="White"/>
-                <GradientStop Color="#FF58F0FF" Offset="1"/>
+                <GradientStop Color="#FF4491EE"/>
+                <GradientStop Color="#FF49C3DE" Offset="1"/>
             </LinearGradientBrush>
-        </RadioButton.Background>
+        </Button.Background>
         <Grid Height="250" Width="250">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
             </Grid.RowDefinitions>
             <Grid Grid.Column="0" Margin="0 0 0 0" HorizontalAlignment="Left">
-                <Button  Command="{Binding Path=DataContext.SelectCommand,RelativeSource={RelativeSource AncestorType=local2:VehicleEquipmentView}}" Margin="10 0 0 0" CommandParameter="{Binding Id}"></Button>
                 <Image Source="{Binding ImageCar}" Width="120" Height="120"/>
             </Grid>
             <Grid Grid.Row="1" Margin="0 3 0 0">
@@ -71,5 +70,5 @@
                 </Grid>
             </Grid>
         </Grid>
-    </RadioButton>
+    </Button>
 </UserControl>

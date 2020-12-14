@@ -10,27 +10,37 @@
              d:DesignHeight="900" d:DesignWidth="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="350px"/>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="500px"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="1.1px"/>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0">
-            <ItemsControl ItemsSource="{Binding VehicleList}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding VehicleList}">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <VehicleEquipmentTask:EquipmentTask/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+
+        </Grid>
+        <Grid Grid.Row="1" Background="WhiteSmoke">
+            <ItemsControl ItemsSource="{Binding EquipmentList}" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <VehicleEquipmentTask:TaskEquipment/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
         </Grid>
-        <Grid Grid.Row="1" Height="200px" Background="WhiteSmoke">
-
-            
-                
-        </Grid>
         <Grid Grid.Row="2" Background="Black">
-               
+
         </Grid>
         <Grid Grid.Row="3" Margin="0 2 0 0">
             <TextBox Width="300px" Style="{StaticResource MaterialDesignFloatingHintTextBox}" HorizontalAlignment="Left" Background="White" Text="{Binding EquipmentName, UpdateSourceTrigger=PropertyChanged}" materialDesign:HintAssist.Hint="Name"  FontSize="18" />
@@ -40,5 +50,5 @@
                 <Image Source="/Resources/addequipment.png" Height="35" />
             </Button>
         </Grid>
-        </Grid>
+    </Grid>
 </UserControl>

@@ -13,6 +13,9 @@
     <Compile Update="Controls\Category\InventoryControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Controls\EquipmentTask\TaskEquipment.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Controls\EquipmentTask\VehicleTaskEquipment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -49,6 +52,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\Category\InventoryControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Controls\EquipmentTask\TaskEquipment.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Controls\EquipmentTask\VehicleTaskEquipment.xaml">
