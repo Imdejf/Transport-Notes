@@ -96,11 +96,13 @@ namespace Transport.Notes.WPF.ViewModel.InventoryViewModel.VehicleEquipment
         public ICommand AddEquipmentCommand { get; set; } 
         public ICommand SelectedVehcile { get; set; }
         public ICommand SelectCommand { get; set; }
+        public ICommand DeleteEquipment { get; set; }
 
         #endregion
 
         public EquipmentViewModel(IAccountStore accountStore,IEquipmentService equipmentService,IEquipmentState equipmentState, IVehicleState vehicleState)
         {
+            DeleteEquipment = new DeleteEquipmentCommand();
             SelectCommand = new SelectedEquipmentCommand(equipmentService, equipmentState, this);
             AddEquipmentCommand = new AddEquipmentCommand(this,equipmentState,equipmentService);
             _accountStore = accountStore;

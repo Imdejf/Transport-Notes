@@ -8,6 +8,7 @@ namespace Transport.Notes.Domain.Services.EquipmentService
     public interface IEquipmentService
     {
         Task<Vehicle> SelectedVehcile(int id);
+        Task<bool> DeleteEquipment(int id,Vehicle vehicle);
         Task<Vehicle> AddEquipment(string NameEquipment, int Quantity, DateTime DateEquipment,Vehicle vehicleId);
     }
 }

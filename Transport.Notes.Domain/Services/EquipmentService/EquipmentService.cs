@@ -39,10 +39,12 @@ namespace Transport.Notes.Domain.Services.EquipmentService
             return vehicleId;
         }
 
-        public async Task<Vehicle> SelectedVehcile(int id)
+        public async Task<bool> DeleteEquipment(int id, Vehicle vehicle)
         {
-            Vehicle vehicle = await _vehicleDataService.Get(id);
-            return vehicle;
+            await _vehicleService.DeleteEquipment(id);
+            var task = vehicle.Equipment.FirstOrDefault(e => e.Id == id);
+            vehicle.Equipment.Remove(task);
+            return true;
         }
     }
 }

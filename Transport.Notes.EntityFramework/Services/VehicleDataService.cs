@@ -58,6 +58,16 @@ namespace Transport.Notes.EntityFramework.Services
                     .FirstOrDefaultAsync(a => a.Id == id);
             }
         }
+        public async Task<bool> DeleteEquipment(int id)
+        {
+            using (TransportNotesDbContext context = _contextFacotry.CreateDbContext())
+            {
+                Equipment vehicle = await context.Set<Equipment>().FirstOrDefaultAsync((e) => e.Id == id);
+                context.Set<Equipment>().Remove(vehicle);
+                await context.SaveChangesAsync();
+                return true;
+            }
+        }
 
         public async Task<Vehicle> GetByRegistrationNumber(string registrationNumber)
         {
