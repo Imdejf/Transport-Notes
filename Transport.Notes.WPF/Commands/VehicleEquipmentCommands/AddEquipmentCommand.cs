@@ -31,7 +31,6 @@ namespace Transport.Notes.WPF.Commands.VehicleEquipmentCommands
                int quantity =  _equipmentViewModel.Quantity;
                DateTime dateEquipment = _equipmentViewModel.DateEquipment;
                 var Task = _equipmentViewModel.VehicleList.FirstOrDefault(s => s.IsSelected);
-                int selectedTask = (int)Task.Id;
                 Vehicle vehicle = await _equipmentService.AddEquipment(equipmentName, quantity, dateEquipment,_equipmentState.CurrentVehicle);
             }
             catch(Exception ex)
